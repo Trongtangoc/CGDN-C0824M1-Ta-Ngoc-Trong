@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Show output</title>
+</head>
+
+<body>
+  <button id="btn-alert" onClick="myAlert()"> Alert</button>
+  <button> inerHTML</button>
+  <p id="btn-inerHTML"></p>
+  <button id="btn-write"> Write</button>
+  <button id="btn-consolelog">console.log </button>
+</body>
+<script>
+  let btnalert = document.getElementById('btn-alert')
+  btnalert.onClick = function () { myAlert() }
+  function myAlert() {
+    alert("Hello world alert")
+  }
+
+</script>
+
+</html>
