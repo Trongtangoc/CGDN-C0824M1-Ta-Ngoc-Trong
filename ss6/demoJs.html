@@ -18,6 +18,9 @@ button{
 <button class="bg-img" id="btn">alert external</button>
 <button class="bg-img" onclick="confirm('Hello world')">confirm</button>
 <button class="bg-img" onclick="prompt('Hello world')">prompt</button>
+
+<input placeholder="Nhap diem hoc vien" id="diemhocvien">
+<label for="diemhocvien"></label>
 </body>
 <!--Internal JS-->
 <script>
@@ -31,6 +34,7 @@ btn.addEventListener("click",function () {
   btn.style.color="#fff";
   btn.innerText="Unlike";
 })
+
 let a = +prompt("a")
 let b = +prompt("b")
 alert(a + b)
