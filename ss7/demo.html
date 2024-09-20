@@ -1,16 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Demo</title>
 </head>
+
 <body>
+<!--    <form> <label for="diemHocvienid">Điểm học viên (0-100):</label>-->
+<!--        <input type="number" placeholder="Nhập điểm học viên" id="diemHocvienid" min="0" max="100" name="diemHocvien"-->
+<!--            width="300px">-->
+<!--        <input type="submit" onclick="myDiemhocvien()">-->
+<!--        <p id="demo"></p>-->
+<!--    </form>-->
+
+<form action="">
+    <label for="randomnummber">Nhập vào 1 số: </label>
+    <input type="number" id="randomnummber">
+    <button type="submit" onclick="myRandomnumber()">Kiểm tra</button>
+<!--    <p id="demo"></p>-->
+</form>
+</body>
+
 <script>
     // const PI = 3.14;// không gán lại được giá trị
-    let diemToan = 9;
-        diemToan = 10;//gán lại được giá trị
-    let a;
-    console.log(typeof a)
+    // let diemToan = 9;
+    //     diemToan = 10;//gán lại được giá trị
+    // let a;
+    // console.log(typeof a)
+
 </script>
-</body>
+<script >
+    //let diemHocvien = +prompt("Nhập điểm học viên")
+    // function myDiemhocvien() {
+    //     let diemHocvien = document.getElementById("diemHocvienid").value;
+    //     if (diemHocvien >= 75) {
+    //         alert("pass module") ;
+    //         // document.getElementById("demo").innerHTML = diemHocvien
+    //     }
+    //     else {
+    //         alert("fail module");
+    //     }
+    // }
+</script>
+<script>
+// function myRandomnumber() {
+//     let valueInput = document.getElementById("randomnummber").value;
+//     if (valueInput == 1) {
+//         // document.getElementById("demo").innerHTML = "Chủ nhật"
+//         alert("Chủ nhật")
+//     } else if (valueInput == 2) {
+//         alert("Thứ 2")
+//     } else if (valueInput == 3) {
+//         alert("Thứ 3")
+//     } else if (valueInput == 4) {
+//         alert("Thứ 4")
+//     } else if (valueInput == 5) {
+//         alert("Thứ 5")
+//     } else if (valueInput == 6) {
+//         alert("Thứ 6")
+//     } else if (valueInput == 7) {
+//         alert("Thứ 7")
+//     } else {
+//         alert("Không phải ngày trong tuần")
+//     }
+// }
+function myRandomnumber(){
+    let i = 1;
+    let ngay;
+    switch (i){
+        case 1:
+            ngay = alert("Chủ nhật");
+            break;
+        case 2:
+            ngay = alert("Thứ 2");
+            break;
+        case 3:
+            ngay = alert("Thứ 3");
+            break;
+        case 4:
+            ngay = alert("Thứ 4");
+            break;
+        case 5:
+            ngay = alert("Thứ 5");
+            break;
+        case 6:
+            ngay = alert("Thứ 6");
+            break;
+        case 7:
+            ngay = alert("Thứ 7");
+            break;
+        default:
+            ngay: alert("Không phải ngày trong tuần")
+    }
+}
+</script>
 </html>
