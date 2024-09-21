@@ -37,6 +37,7 @@
     // let diemHocvien = +prompt("Nhập điểm học viên")
     function myDiemhocvien() {
         let diemHocvien = document.getElementById("diemHocvienid").value;
+        diemHocvien > 75 ? alert("pass") : alert("fail") // toán tử 3 ngôi
         if (diemHocvien >= 75) {
             // alert("pass module") ;
             document.getElementById("demo").innerHTML = "pass module"
