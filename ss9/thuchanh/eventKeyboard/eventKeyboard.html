@@ -1,33 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Event Keyboard</title>
-
 </head>
-<body onload="pressKeyboard()">
+
+<body>
     <h3>Move Nobita</h3>
     <img id="myNobita" src="1.png" width="188" style="position: relative; left: 0; top: 0">
 </body>
 <script>
     let myNobitaInit = null;
-        myNobitaInit = document.getElementById("myNobita");
+    myNobitaInit = document.getElementById("myNobita");
 
-    function moveUp(){
+    function moveUp() {
         myNobitaInit.style.top = parseInt(myNobitaInit.style.top) - 10 + "px";
     }
-    function moveLeft(){
+    function moveLeft() {
         myNobitaInit.style.left = parseInt(myNobitaInit.style.left) - 10 + "px";
     }
-    function moveRight(){
+    function moveRight() {
         myNobitaInit.style.left = parseInt(myNobitaInit.style.left) + 10 + "px";
     }
-    function moveDown(){
+    function moveDown() {
         myNobitaInit.style.top = parseInt(myNobitaInit.style.top) + 10 + "px";
     }
     function pressKey(evt) {
         console.log(evt.keyCode)
-        switch (evt.keyCode){
+        switch (evt.keyCode) {
             case 38:
                 moveUp();
                 break;
@@ -42,10 +43,11 @@
                 break;
         }
     }
-    function pressKeyboard(){
-        window.addEventListener('keydown',pressKey)
+    function pressKeyboard() {
+        window.addEventListener('keydown', pressKey);
     }
-
+    window.onload = pressKeyboard();
 
 </script>
+
 </html>
