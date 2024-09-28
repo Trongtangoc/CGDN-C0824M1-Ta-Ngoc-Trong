@@ -46,7 +46,7 @@
     ><br />
     <button onclick="countElectric()">Bài 10: Viết chương trình tính giá điện.</button><br />
     <button onclick="countTax()">Bài 11: Viết chương trình tính thuế thu nhập cá nhân.</button><br />
-    <button onclick="giaiPtb2()">Bài 12: Viết chương trình tính lãi ngân hàng (lãi mẹ đẻ lãi con) khi biết số tiền ban đầu, số tháng cho vay và lãi xuất hàng tháng.</button><br />
+    <button onclick="countTaxBank()">Bài 12: Viết chương trình tính lãi ngân hàng (lãi mẹ đẻ lãi con) khi biết số tiền ban đầu, số tháng cho vay và lãi xuất hàng tháng.</button><br />
   </body>
   <script>
     // Bài 1: Chuyển từ độ C sang độ F.
@@ -214,13 +214,46 @@
 
     // Bài 11: Viết chương trình tính thuế thu nhập cá nhân.
     function countTax(){
+        let countTax = 0;
         let salary = +prompt("Nhập mức lương hiện tại của bạn");
-        while (isNaN(salary) || salary <= 0){
+        while (isNaN(salary) || salary <= 0 || !Number.isInteger(salary)){
             salary = +prompt("Vui lòng nhập mức lương hiện tại của bạn, phải là một số lớn hơn 0");
-        };
+        }
+        if (salary <= 11000000) {
+          alert("Bạn không thuộc đối tượng phải tính thuế thu nhập cá nhân")
+        } else if (salary > 11000000){
+          let soNguoiPhuThuoc = +prompt("Nhập số người phụ thuộc: ")
+          while (isNaN(soNguoiPhuThuoc) || soNguoiPhuThuoc <= 0 || !Number.isInteger(soNguoiPhuThuoc)){
+            soNguoiPhuThuoc = +prompt("Bạn phải nhập 1 số nguyên như 1, 2, 3 , 4....");
+          }
+          countTax = ((salary - (soNguoiPhuThuoc * 4400000)) - 11000000) * (10/100);
+          alert(`Bạn phải nộp ${countTax} VND cho mức lương ${salary}`)
+        }
         
     }
     // Bài 12: Viết chương trình tính lãi ngân hàng (lãi mẹ đẻ lãi con) khi biết số tiền ban đầu, số tháng cho vay và lãi xuất hàng tháng.
+    function countTaxBank() {
+      let soTienVayBanDau = +prompt("Nhập số tiền vay ban đầu")
+      while (isNaN(soTienVayBanDau) || soTienVayBanDau <= 0 || !Number.isInteger(soTienVayBanDau)){
+        soTienVayBanDau = +prompt("Bạn phải nhập số tiền vay lớn hơn 0");
+      }
+      let soThangVay = +prompt("Nhập số tháng mà bạn vay");
+      while (isNaN(soThangVay) || soThangVay <= 0 || !Number.isInteger(soThangVay)){
+        soThangVay = +prompt("Bạn phải nhập số tháng vay là một số lớn hơn 0");
+      }
+      let laiXuat = +prompt("Nhập lãi xuất hàng tháng");
+      while (isNaN(laiXuat) || laiXuat <=0){
+        laiXuat = +prompt("Bạn phải nhập lãi xuất là một số lớn hơn 0");
+      }
+      laiXuat = laiXuat / 100
+
+      if (soTienVayBanDau > 0 && soThangVay > 0 && laiXuat > 0){
+        let soTienPhaiTra = 0;
+        let chuKyTinhLai = 0;
+        soTienPhaiTra = soTienVayBanDau * Math.pow((1 + laiXuat),soThangVay);
+        alert(`Số tiền bạn phải trả cho khoản vay ${soTienVayBanDau} VND trong ${soThangVay} với lãi xuất ${laiXuat}là ${Math.floor(soTienPhaiTra)}`);
+      }
+    }
   </script>
   
 </html>

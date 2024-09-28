@@ -27,39 +27,42 @@
     // } else {
     //   alert(a + "không phải là số hoàn hảo");
     // }
-    let soNguyenTo = 1;
-    let count = 0;
-    while (count < 10) {
-      let soNguyenTo = soNguyenTo;
-      if (soNguyenTo % soNguyenTo != 0 && soNguyenTo % 1 === 0) {
-        console.log(soNguyenTo);
-        soNguyenTo++;
-        count++;
-      }
-    }
+    //let soNguyenTo = 1;
+    // let count = 0;
+    // while (count < 10) {
+    //   let soNguyenTo = soNguyenTo;
+    //   if (soNguyenTo % soNguyenTo != 0 && soNguyenTo % 1 === 0) {
+    //     console.log(soNguyenTo);
+    //     soNguyenTo++;
+    //     count++;
+    //   }
+    // }
 
-    let soNguyenTo = 2; // Bắt đầu từ số nguyên tố đầu tiên
-    let count = 0;
-
-    while (count < 10) {
-      let isPrime = true; // Biến đánh dấu là số nguyên tố
-
-      // Kiểm tra xem soNguyenTo có phải là số nguyên tố hay không
-      for (let i = 2; i <= Math.sqrt(soNguyenTo); i++) {
-        if (soNguyenTo % i === 0) {
-          isPrime = false; // Nếu chia hết cho i, không phải số nguyên tố
-          break; // Dừng vòng lặp
-        }
-      }
-
-      // Nếu là số nguyên tố, in ra và tăng count
-      if (isPrime) {
-        console.log(soNguyenTo);
-        count++;
-      }
-
-      // Tăng giá trị để kiểm tra số tiếp theo
-      soNguyenTo++;
-    }
+    // let soNguyenTo = 2;
+    // let count = 0;
+    //
+    // while (count < 10) {
+    //   let flag = true;
+    //
+    //   // Kiểm tra xem soNguyenTo có phải là số nguyên tố hay không
+    //   for (let i = 2; i <= Math.sqrt(soNguyenTo); i++) {
+    //     if (soNguyenTo % i === 0) {
+    //       flag = false; // Nếu chia hết cho i, không phải số nguyên tố
+    //       break; // Dừng vòng lặp
+    //     }
+    //   }
+    //
+    //   // Nếu là số nguyên tố, in ra và tăng count
+    //   if (flag) {
+    //     console.log(soNguyenTo);
+    //     count++;
+    //   }
+    //
+    //   // Tăng giá trị để kiểm tra số tiếp theo
+    //   soNguyenTo++;
+    // }
   </script>
+<script>
+  let timSoNguyenTo
+</script>
 </html>
