@@ -1,43 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Title</title>
-</head>
-<body>
-
-</body>
-<script>
-  //Kiểm tra một số bất kỳ có phải là 1 số hoàn hảo hay không
-  // số hoàn hảo là tổng các ước (trừ chính nó) cộng lại bằng chính nó.
-  // vd số 6: 1+2+3 = 6
-  //let a = +prompt("nhap so a: ");
-  //inNaN: hàm kiểm tra có phải là một số hay không
- // while (isNaN(a) || a <= 0){
-   // a = +prompt("a phải là một số hoặc là một số âm")
- // }
-  //while đang sử dụng để kiểm tra điều kiện thứ 2 : a có phải là số hay không
-  // let sum = 0;
-  // for(let i = 0 ; i < a ; i++){
-  //     if (a % i === 0){
-  //       sum = sum + i;
-  //       // sum += i
-  //     }
-  //   }
-  // if (sum === a){
-  //   alert(a + "là số hoàn hảo");
-  // } else {
-  //   alert(a + "không phải là số hoàn hảo");
-  // }
-  let soNguyenTo = 1;
-  let count = 0;
-  while(count < 10){
-    if (soNguyenTo % soNguyenTo != 0 && soNguyenTo % 1 === 0){
-      console.log(soNguyenTo);
-      soNguyenTo++;
-      count++;
+  </head>
+  <body></body>
+  <script>
+    //Kiểm tra một số bất kỳ có phải là 1 số hoàn hảo hay không
+    // số hoàn hảo là tổng các ước (trừ chính nó) cộng lại bằng chính nó.
+    // vd số 6: 1+2+3 = 6
+    //let a = +prompt("nhap so a: ");
+    //inNaN: hàm kiểm tra có phải là một số hay không
+    // while (isNaN(a) || a <= 0){
+    // a = +prompt("a phải là một số hoặc là một số âm")
+    // }
+    //while đang sử dụng để kiểm tra điều kiện thứ 2 : a có phải là số hay không
+    // let sum = 0;
+    // for(let i = 0 ; i < a ; i++){
+    //     if (a % i === 0){
+    //       sum = sum + i;
+    //       // sum += i
+    //     }
+    //   }
+    // if (sum === a){
+    //   alert(a + "là số hoàn hảo");
+    // } else {
+    //   alert(a + "không phải là số hoàn hảo");
+    // }
+    let soNguyenTo = 1;
+    let count = 0;
+    while (count < 10) {
+      let soNguyenTo = soNguyenTo;
+      if (soNguyenTo % soNguyenTo != 0 && soNguyenTo % 1 === 0) {
+        console.log(soNguyenTo);
+        soNguyenTo++;
+        count++;
+      }
     }
-  }
 
-</script>
+    let soNguyenTo = 2; // Bắt đầu từ số nguyên tố đầu tiên
+    let count = 0;
+
+    while (count < 10) {
+      let isPrime = true; // Biến đánh dấu là số nguyên tố
+
+      // Kiểm tra xem soNguyenTo có phải là số nguyên tố hay không
+      for (let i = 2; i <= Math.sqrt(soNguyenTo); i++) {
+        if (soNguyenTo % i === 0) {
+          isPrime = false; // Nếu chia hết cho i, không phải số nguyên tố
+          break; // Dừng vòng lặp
+        }
+      }
+
+      // Nếu là số nguyên tố, in ra và tăng count
+      if (isPrime) {
+        console.log(soNguyenTo);
+        count++;
+      }
+
+      // Tăng giá trị để kiểm tra số tiếp theo
+      soNguyenTo++;
+    }
+  </script>
 </html>
