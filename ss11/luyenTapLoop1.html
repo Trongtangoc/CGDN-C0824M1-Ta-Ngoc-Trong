@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<button onclick="bai1()">Bài 1: Sử dụng vòng lặp để đếm từ 1 đến 100. Khi số là 99, hiển thị hộp thoại thông báo là đã hoàn thành.</button><br>
+<p id="bai1"></p><br>
+<button onclick="bai2()">Bài 2: Sử dụng hàm prompt() để lấy thông tin nhiệt độ hiện tại được nhập bởi người truy cập.</button><br>
+<button onclick="fibonacci()">Bài 3: Hiển thị ra 20 số trong dãy fibonacci đầu tiên.</button><br>
+<button>Bài 4: Tìm số đầu tiên trong dãy fibonacci chia hết cho 5.</button><br>
+<button>Bài 5: Tính tổng của 20 số đầu tiên trong dãy fibonacci.</button><br>
+<button>Bài 6: Tính tổng của 30 số chia hết cho 7 đầu tiên trong các số tự nhiên.</button><br>
+<button>Bài 7: Hãy viết một chương trình in ra các số từ 1 đến 100.
+    Nhưng nếu số chia hết cho 3 thì in ra "Fizz", 5 thì in ra "Buzz" thay vì in ra số đó.
+    Và nếu số đó chia hết cho cả 3 và 5 thì in ra chữ "FizzBuzz".
+    Học viên tham khảo ứng dụng demo tại đây.
+    Lưu ý: Không sao chép mã nguồn trong phần tham khảo, vì nó được cố ý giữ cho tệ hơn thường lệ.</button><br>
+<button>Bài 8: Game đoán số</button>
+</body>
+<script>
+    function bai1(){
+        let i = 1
+        while(i < 100){
+            console.log(i);
+            i++;
+            if ( i === 99){
+                alert("đã hoàn thành")
+            }
+        }
+    }
+    function bai2(){
+        let temp = +prompt("Nhập nhiệt độ hiện tại")
+            while (isNaN(temp)){
+            temp = +prompt("Vui lòng nhập lại một số");
+            }
+            if (temp > 100){
+                alert("Vui lòng giảm nhiệt độ");
+            } else if (temp < 20){
+                alert("Vui lòng tăng nhiệt độ");
+            }   else if ( temp <= 100 || tem >=20){
+                alert("Nhiệt độ bình thường");
+            }
+    }
+    function fibonacci() {
+    // let n = +prompt("Nhập vào số n");
+    // if (n <= 1){
+    //     console.log(n + "lafibonaci")
+    // } else {
+    //     let preNumber = 0;
+    //     let current = 1;
+    //     let fiboNumber = 0;
+    //         for (let i = 2; i <= n; i++){
+    //             fiboNumber = preNumber + current;
+    //             preNumber = current;
+    //             current = fiboNumber;
+    //             console.log(fiboNumber)
+    // }}
+        let count = 0;
+        let n1 = 0;
+        let n2 = 1;
+        let n3;
+        console.log(n1);
+        console.log(n2);
+        while (count < 21){
+            for (let i = 3; i <= 20; i++){
+                    n3 = n1 + n2;
+                    console.log(n3);
+                    n1 = n2;
+                    n2 = n3;
+                    count++;
+                }
+        }
+
+    }
+    function bai4(){
+        let count = 0;
+        let n1 = 0;
+        let n2 = 1;
+        let n3;
+        console.log(n1);
+        console.log(n2);
+        while (count < 21){
+            for (let i = 3; i <= 20; i++){
+                n3 = n1 + n2;
+                console.log(n3);
+                n1 = n2;
+                n2 = n3;
+                count++;
+            }
+            if( n3 % 5 === 0){
+                break
+            }
+        }
+    }
+
+</script>
+</html>
