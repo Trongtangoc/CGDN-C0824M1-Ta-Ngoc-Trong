@@ -4,29 +4,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
 
 <body>
-    <button onclick="bai1()">Bài 1: Sử dụng vòng lặp để đếm từ 1 đến 100. Khi số là 99, hiển thị hộp thoại thông báo là
-        đã hoàn thành.</button><br>
-    <p id="bai1"></p><br>
-    <button onclick="bai2()">Bài 2: Sử dụng hàm prompt() để lấy thông tin nhiệt độ hiện tại được nhập bởi người truy
-        cập.</button><br>
-    <button onclick="fibonacci()">Bài 3: Hiển thị ra 20 số trong dãy fibonacci đầu tiên.</button><br>
-    <button onclick="bai4()">Bài 4: Tìm số đầu tiên trong dãy fibonacci chia hết cho 5.</button><br>
-    <p id="bai4"></p>
-    <button onclick="bai5()">Bài 5: Tính tổng của 20 số đầu tiên trong dãy fibonacci.</button><br>
-    <p id="bai5"></p>
-    <button onclick="bai6()">Bài 6: Tính tổng của 30 số chia hết cho 7 đầu tiên trong các số tự nhiên.</button><br>
-    <button onclick="bai7()">Bài 7: Hãy viết một chương trình in ra các số từ 1 đến 100.
-        Nhưng nếu số chia hết cho 3 thì in ra "Fizz", 5 thì in ra "Buzz" thay vì in ra số đó.
-        Và nếu số đó chia hết cho cả 3 và 5 thì in ra chữ "FizzBuzz".
-    </button><br>
-    <p id="bai7"></p>
-    <button>Bài 8: Game đoán số</button>
+<button onclick="bai1()">Bài 1: Sử dụng vòng lặp để đếm từ 1 đến 100. Khi số là 99, hiển thị hộp thoại thông báo là
+    đã hoàn thành.
+</button>
+<br>
+<p id="bai1"></p><br>
+<button onclick="bai2()">Bài 2: Sử dụng hàm prompt() để lấy thông tin nhiệt độ hiện tại được nhập bởi người truy
+    cập.
+</button>
+<br>
+<button onclick="fibonacci()">Bài 3: Hiển thị ra 20 số trong dãy fibonacci đầu tiên.</button>
+<br>
+<button onclick="bai4()">Bài 4: Tìm số đầu tiên trong dãy fibonacci chia hết cho 5.</button>
+<br>
+<p id="bai4"></p>
+<button onclick="bai5()">Bài 5: Tính tổng của 20 số đầu tiên trong dãy fibonacci.</button>
+<br>
+<p id="bai5"></p>
+<button onclick="bai6()">Bài 6: Tính tổng của 30 số chia hết cho 7 đầu tiên trong các số tự nhiên.</button>
+<br>
+<button onclick="bai7()">Bài 7: Hãy viết một chương trình in ra các số từ 1 đến 100.
+    Nhưng nếu số chia hết cho 3 thì in ra "Fizz", 5 thì in ra "Buzz" thay vì in ra số đó.
+    Và nếu số đó chia hết cho cả 3 và 5 thì in ra chữ "FizzBuzz".
+</button>
+<br>
+<p id="bai7"></p>
+<button onclick="bai8()">Bài 8: Game đoán số</button>
+<button id="clickPlay" onclick="bai8()">Chơi</button>
 </body>
 <script>
     function bai1() {
@@ -39,6 +49,7 @@
             }
         }
     }
+
     function bai2() {
         let temp = +prompt("Nhập nhiệt độ hiện tại")
         while (isNaN(temp)) {
@@ -52,6 +63,7 @@
             alert("Nhiệt độ bình thường");
         }
     }
+
     function fibonacci() {
         // let n = +prompt("Nhập vào số n");
         // if (n <= 1){
@@ -83,6 +95,7 @@
         }
 
     }
+
     function bai4() {
         // Tìm số đầu tiên trong dãy fibonacci chia hết cho 5.
         let sum = 0;
@@ -109,6 +122,7 @@
         }
         document.getElementById("bai4").innerHTML = "Số đầu tiên chia hết cho 5 trong dãy là " + chiaHetCho5
     }
+
     function bai5() {
         let sum = 0;
         let num1 = 0;
@@ -133,6 +147,7 @@
         }
         document.getElementById("bai5").innerHTML = "Tổng là " + sumFibo;
     }
+
     function bai6() {
         let count = 0;
         let sum = 0;
@@ -152,6 +167,7 @@
 
         document.write("Tổng 30 chia hết cho 7 bằng " + sum)
     }
+
     function bai7() {
         let count = 0;
 
@@ -169,6 +185,28 @@
             } else {
 
                 document.getElementById("bai7").innerHTML = i;
+            }
+        }
+    }
+
+    function bai8() {
+        let whenClick = +prompt("Nhập khoảng số bạn muốn đoán từ 0 đến số bạn nhập: ");
+        let checkNumber = +prompt("Nhập số bạn đoán")
+        let randomNumber = Math.floor(Math.random() * whenClick)
+        console.log(randomNumber);
+        for (let count = 0; count < 4; count++) {
+            if (randomNumber > checkNumber) {
+                alert("Bạn đã đoán số nhỏ hơn");
+                checkNumber = +prompt("Mời bạn đoán tiếp: ");
+            } else if (randomNumber < checkNumber) {
+                alert("Bạn đã đoán số lớn hơn");
+                checkNumber = +prompt("Mời bạn đoán tiếp: ");
+            } else {
+                alert("Chúc mừng bạn đã đoán đúng");
+                break;
+            }
+            if(count === 3){
+                alert("Bạn đã hết lượt đoán");
             }
         }
     }
