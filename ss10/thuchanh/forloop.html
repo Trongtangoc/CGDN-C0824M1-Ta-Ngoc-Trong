@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thực hành vòng lặp for</title>
+</head>
+<body>
+<button onclick="showNum()">Bài 1: Viết chương trình hiển thị chuỗi “The number is N” 5 lần sử dụng vòng lặp for. </button>
+<p id="showNum"></p>
+<button>Bài 2: Viết chương trình nhập vào một số bất kỳ lớn hơn 0. Tính tổng các phần tử từ 1 đến số vừa nhập vào.</button>
+
+</body>
+<script>
+    function showNum() {
+        let i = 0;
+        let showNum = 0;
+        for( i; i < 5; i++){
+            showNum++;
+        }
+        document.getElementById("showNum").innerHTML = showNum;
+    }
+</script>
+</html>
