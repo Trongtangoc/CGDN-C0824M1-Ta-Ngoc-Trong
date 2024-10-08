@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Loop 2</title>
 </head>
+
 <body>
-    <button onclick="prinftFibonaci()">Bài 1: Nhấn để in dãy Fibonaci</button>
+    <button onclick="printFibonaci()">Bài 1: Nhấn để in dãy Fibonaci</button>
     <p id="result"></p>
     <button onclick="bai2GiaiThua()">Bài 2: Tính giai thừa của một số nguyên dương</button>
     <p id="resultGiaiThua"></p>
-    <button onclick="bai3PrinftTriger()">Bài 3: In tam giác vuông. Các góc vuông nằm ở các vị trí khác nhau</button>
+    <button onclick="bai3PrintTriger()">Bài 3: In tam giác vuông. Các góc vuông nằm ở các vị trí khác nhau</button>
     <p id="resultTamGiac"></p>
-    <button onclick="bai4PrinftChuNhat()">Bài 4: In hình chữ nhật</button>
+    <button onclick="bai4PrintChuNhat()">Bài 4: In hình chữ nhật</button>
     <button onclick="bai5CountTax()">Bài 5: Viết chương trình tính lãi ngân hàng </button>
-    <button onclick="bai6PrinftHeart()">Bài 6: In hình trái tim</button>
+    <button onclick="bai6PrintHeart()">Bài 6: In hình trái tim</button>
 </body>
 <script>
-    function prinftFibonaci(){
+    function printFibonaci() {
         let count = 0;
         let num1 = 0;
         let num2 = 1;
@@ -25,44 +27,66 @@
         let i = 0;
         while (count < 20) {
             for (i; i <= 20; i++) {
-                    soFibonacci = num1 + num2;
-                    daySoFibonaci.push(soFibonacci)
-                    num1 = num2;
-                    num2 = soFibonacci;
-                    count++;
+                soFibonacci = num1 + num2;
+                daySoFibonaci.push(soFibonacci)
+                num1 = num2;
+                num2 = soFibonacci;
+                count++;
             }
             document.getElementById("result").innerHTML = `Dãy 20 số Fibonaci là: ${daySoFibonaci}`;
         }
 
     }
-    function bai2GiaiThua(){
+    function bai2GiaiThua() {
         let soNguyen = +prompt("Nhập vào số nguyên dương cần tính giai thừa");
-        let result = 1 ;
-        while (isNaN(soNguyen) || soNguyen < 0){
+        let result = 1;
+        while (isNaN(soNguyen) || soNguyen < 0) {
             soNguyen = +prompt("Bạn phải nhập đúng số nguyên dương là số lơn hơn 0");
         }
-        if (soNguyen == 0 || soNguyen == 1){
+        if (soNguyen == 0 || soNguyen == 1) {
             console.log(result);
             document.getElementById("resultGiaiThua").innerHTML = `${soNguyen}! bằng  ${result} `
         } else {
-            for (let i = 1; i <= soNguyen; i++){
+            for (let i = 1; i <= soNguyen; i++) {
                 result = result * i;
             }
             document.getElementById("resultGiaiThua").innerHTML = `${soNguyen}! bằng  ${result} `
         }
     }
-    function bai3PrinftTriger(){
+    function bai3PrintTriger() {
+        let line = "";
+        let star = "*"
 
-        for(let i = 0; i <= 5; i++ ){
-            for(let j = 0; j <= i; j++){
-                let start = "*";
-                document.getElementById("resultTamGiac").innerHTML = start;
-                }
+        for (let i = 1; i <= 5; i++) {
+            for (let j = 1; j <= i; j++) {
+                line += star;
             }
+            line += "<br>";
         }
 
-    function bai4PrinftChuNhat(){}
-    function bai5CountTax(){}
-    function bai6PrinftHeart(){}
+        for (let i = 5; i >= 1; i--) {
+            for (let j = 1; j <= i; j++) {
+                line += star;
+            }
+            line += "<br>";
+        }
+
+
+        // In nửa dưới của hình (tăng dần)
+        for (let i = 1; i <= 9; i++) {
+            let stars = i <= 5 ? i : 10 - i;
+            for (let j = 1; j <= stars; j++) {
+                line += '*';
+            }
+            line += '<br>';
+        }
+
+        document.getElementById("resultTamGiac").innerHTML = line;
+    }
+
+    function bai4PrintChuNhat() { }
+    function bai5CountTax() { }
+    function bai6PrintHeart() { }
 </script>
+
 </html>
