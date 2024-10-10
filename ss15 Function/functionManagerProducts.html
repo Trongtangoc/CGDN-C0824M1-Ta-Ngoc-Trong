@@ -111,9 +111,8 @@
         } else {
             alert("Tên sản phẩm phải đủ từ 5 dến 100 ký tự");
             document.getElementById("productAddName").focus();
-            return;
             check = false;
-
+            return;
         }
         if(!isNaN(productAddPrice) && productAddPrice > 0 && productAddPrice < 100000000) {
             product.price = productAddPrice;
@@ -122,8 +121,8 @@
         } else {
             alert("Giá sản phẩm phải là một số lớn hơn không và nhỏ hơn 100000000 ");
             document.getElementById("productAddPrice").focus()
-            return;
             check = false;
+            return;
         }
         if(productAddManufacturer.length > 5 && productAddManufacturer.length < 100) {
             product.manufacturer = productAddManufacturer;
@@ -132,9 +131,8 @@
         } else {
             alert("Nhập Nhà sản xuất sản phẩm phải đủ từ 5 dến 100 ký tự")
             document.getElementById("productAddManufacturer").focus();
-            return;
             check = false;
-
+            return;
         }
         if(productAddDescription.length > 10 && productAddDescription.length < 100) {
             product.description = productAddDescription;
@@ -143,8 +141,9 @@
         } else {
             alert("Mô tả sản phẩm phải đủ từ 10 dến 100 ký tự")
             document.getElementById("productAddDescription").focus();
-            return;
             check = false;
+            return;
+
         }
         if(check) {
             products.push(product);
