@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+  class Person {
+    id;
+    name;
+    address;
+    phone;
+    constructor(id, name, address, phone) {
+      this.id = id;
+      this.name = name;
+      this.address = address;
+      this.phone = phone;
+    }
+  }
+
+  class Student extends Person {
+    classroom;
+    point;
+    constructor(id, name, address, phone, classroom, point) {
+      super(id, name, address, phone);
+      this.classroom = classroom;
+      this.point = point;
+
+    }
+    calculatorPoint(){
+      return (this.point *4) / 10
+    }
+    toString(){
+      return `Tên là ${this.name} có địa chỉ là ${this.address}`
+    }
+  }
+  let student = new Student(1, "Trong", "DN", "123","C0824", 9);
+  console.log(student)
+  console.log(Date.now());
+  let math = Math.random();
+  console.log(math);
+
+  // String
+</script>
+</html>

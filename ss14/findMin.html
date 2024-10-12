@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="showMin()">Click Show Min</button>
+
+</body>
+<script>
+  function findMinArray(arr) {
+    let min = arr[0];
+    let length = arr.length;
+    for(let i = 1; i < length; i++){
+      if(arr[i] < min){
+        min = arr[i];
+      }
+    }
+    return min;
+  }
+  function showMin(){
+    let arr1 = [3, 5, 1, 8, -3, 7, 8];
+    let min = findMinArray(arr1);
+    alert(min);
+  }
+
+
+
+
+</script>
+</html>

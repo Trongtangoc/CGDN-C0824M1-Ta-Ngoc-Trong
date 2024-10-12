@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập] Xây dựng lớp mô tả hình chữ nhậtAssignment</title>
+</head>
+<body>
+<h1>  Xây dựng lớp mô tả hình chữ nhậtAssignment</h1>
+<button onclick="buildClassHinhChuNhat()">Click here to see result</button>
+</body>
+<script>
+  class Rectangle {
+              width;
+              length;
+              constructor(width,length,area,perimeter) {
+                    this.width = width;
+                    this.length = length;
+                      }
+              get width(){
+                  return this.width;
+              }
+              set width(value){
+                  return this.width = value;
+              }
+              get length(){
+                  return this.length;
+              }
+              set length(value){
+                  return this.length = value;
+              }
+              area() {
+                return this.width * this.height;
+              }
+              perimeter (){
+                  return (this.width + this.height) * 2;
+              }
+              draw(){
+                  const canvas = document.getElementById("myCanvas");
+                  const ctx = canvas.getContext("2d");
+                  ctx.beginPath();
+                  ctx.rect(20, 20, 150, 100);
+                  ctx.stroke();
+              }
+
+  }
+  let result = new Rectangle (5,5);
+  console.log(result)
+</script>
+</html>
