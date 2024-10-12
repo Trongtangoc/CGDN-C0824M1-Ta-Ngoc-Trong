@@ -5,6 +5,28 @@
     <title>Good Fast Cheap</title>
 </head>
 <body>
-
+<input type="checkbox" id="good"><label for="good">Good</label><br>
+<input type="checkbox" id="fast"><label for="fast">Fast</label><br>
+<input type="checkbox" id="cheap"><label for="cheap">Cheap</label>
 </body>
+<script>
+    let good = document.getElementById("good");
+    let fast = document.getElementById("fast");
+    let cheap = document.getElementById("cheap");
+    good.addEventListener("click", function(){
+            if(good.checked && fast.checked){
+                cheap.checked = false;
+            }
+    })
+    fast.addEventListener("click", function(){
+        if(fast.checked && cheap.checked){
+            good.checked = false;
+        }
+    })
+    cheap.addEventListener("click", function(){
+        if(cheap.checked && good.checked){
+            fast.checked = false;
+        }
+    })
+</script>
 </html>
