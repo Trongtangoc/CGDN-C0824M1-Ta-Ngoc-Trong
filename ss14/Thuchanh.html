@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-
+<button onclick="minArray(arr1)">click</button>
 </body>
 <script>
   function minArray(arr) {
@@ -15,10 +15,12 @@
         min = arr[i];
       }
     }
-    return min;
+    alert(min)
+    // return min;
   }
+
   let arr1 = [3, 5, 1, 8, -3, 7, 8];
-  let min = minArray(arr1);
-  alert(min);
+  // let min = minArray(arr1);
+  // alert(min);
 </script>
 </html>
