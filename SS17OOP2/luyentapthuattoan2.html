@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button>Viết chương trình in ra các dấu * theo cấu trúc như sau (cho n là chiều cao của tháp, cần in ra n dòng):
+    *****
+    *****
+    *****
+    *****
+    *****
+    *****
+</button>
+<br>
+<p>
+    <button onclick="bai2()">2.Nhập vào tháng, năm bất kỳ. In ra số ngày tương ứng với tháng, năm đó.</button>
+    <br>
+
+    <button onclick="bai3(4)">Viết chương trình tính :
+        S=1+1/2+1/3+....+1/n
+    </button>
+    <br>
+    <button> Viết chương trình tính :
+        S=15-1+1/2-1/3!+....+(-1)n 1/n!
+    </button>
+    <br>
+    <button> Viết chương trình tính :
+        S=1+1/3!+1/5!+…..+1/(2n-1)!
+    </button>
+    <br>
+    <button> Tính n!! = 1*3*5*…..*n(n lẽ)
+        = 2*4*6*….*n(n chẵn)
+    </button>
+    <br>
+    <button>Tính tổng và tích các chữ số của một số nguyên dương m cho trước
+        (Ví dụ : m=234=> S=2+3+4=9, P=2*3*4=24)
+    </button>
+    <br>
+    <button>Nhập 2 số nguyên dương a và b. Sau đó in ra ước chung lớn nhất và bội chung nhỏ nhất của 2 số nguyên dương a
+        và b
+        đó.
+    </button>
+    <br>
+    <button> Nhập vào một chuỗi ký tự thực hiện công việc sau:
+        In ra chuỗi đảo ngược của chuỗi đã cho
+        Đổi chuổi đã cho sang chữ hoa
+        Đổi chuỗi đã cho sang chữ thường
+        Đổi chuỗi đã cho sang vừa chữ hoa vừa chữ thường (các ký tự chữ hoa thì thành chữ thường và ngược lại)
+    </button>
+    <br>
+    <button>Nhập một chuổi ký tự tuỳ ý, sau đó thực hiện công việc sau:
+        a. In mỗi từ trên mỗi dòng
+        b. Đếm số từ có trong chuổi đã cho.
+        b. Đưa ra bảng tần số xuất hiện của các từ.
+    </button>
+    <br>
+    <button></button>
+
+    <br>
+    Viết chương trình thực hiện các công việc như sau :
+    Nhập một mảng a gồm n phần tử kiểu nguyên int
+    Tính tổng số dương lẻ mảng a
+    Nhập phần tử k, tìm xem k có xuất hiện trong mảng a không. Nếu có chỉ ra phần tử ở vị trí đầu tiên
+    Sắp sếp mảng a theo thứ tự tăng dần..
+    Chèn phần tử p vào mảng a sao cho mảng a vẫn đảm bảo tăng dần và xuất lại mảng a.
+    Viết chương trình thực hiện công việc sau:
+    Nhập ma trận a (m dòng, n cột) gồm các phần tử kiểu int
+    Tính tích các số là bội số của 3 nằm trên dòng đầu tiên của ma trận a.
+    Tạo ra mảng một chiều X[i] với X[i] là các giá trị lớn nhất trên dòng i của ma trận a
+    Xoá đi phần tử đầu tiên của mảng X[i], xuất lại mảng X[i].
+</p>
+</body>
+<script>
+    function bai1(n) {
+        for (let i = 0; i < n; i++) {
+            let stars = "";
+            for (let j = 0; j < n; j++) {
+                stars += "*";
+
+            }
+            console.log(stars)
+        }
+    }
+
+    bai1(4);
+
+    function bai2() {
+        let month = +prompt("Nhập vào tháng");
+        while (month < 1 || month > 12) {
+            month = +prompt("Vui Lòng Nhập lại tháng");
+        }
+        let year = +prompt("Nhập vào năm");
+        while (year < 2 || year > 1000000) {
+            year = +prompt("Vui Lòng Nhập lại năm");
+        }
+        switch (month) {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                alert(`Tháng ${month} có 31 ngày`);
+                break;
+            case 2:
+                alert(`tháng ${month} có 28 hoặc 29 ngày`);
+                break;
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                alert(`Tháng ${month} có 30 ngày`);
+                break;
+        }
+    }
+
+    function bai3(n) {
+        let sum = 0;
+        for (let i = 1; i <= n; i++) {
+            sum = sum + (1 / i);
+            
+        }
+        console.log(sum)
+    }
+
+
+    function bai4(){
+
+    }
+
+
+</script>
+</html>
