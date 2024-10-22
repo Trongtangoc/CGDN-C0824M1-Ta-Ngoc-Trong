@@ -52,6 +52,8 @@
     </div>
 </div>
 <div id="result"></div>
+
+</body>
 <script>
     class Product {
         id;
@@ -74,7 +76,21 @@
     function display(products) {
         let result = "<table>"
         for (let i = 0; i < products.length; i++) {
+            // result += "<tr>"
+            // result += `<td>${products[i].name}</td>`
+            // result += "</tr>"
+            // result += `<td>${products[i].price}</td>`
+            // result += "<tr>"
+            // result += `<td>${products[i].manufacturer}</td>`
+            // result += "</tr>"
+            // result += "<tr>"
+            // result += `<td>${products[i].description}</td>`
+            // result += "</tr>"
+            // result += "<tr>"
+            // result += "</tr>"
+
             result += "<tr>"
+
             result += `<td>${products[i].name}</td>`
             result += `<td>${products[i].price}</td>`
             result += `<td>${products[i].manufacturer}</td>`
@@ -82,6 +98,7 @@
             result += `<td><button>Edit</button></td>`
             result += `<td><button onclick="deleteProduct(${i})">Delete</button></td>`
             result += "</tr>"
+
         }
         result += "</table>"
         document.getElementById("result").innerHTML = result;
@@ -177,5 +194,4 @@
     products.push(new Product(1, "Iphone", 40000000,"Apple","Hơi đắt"))
     display(products);
 </script>
-</body>
 </html>

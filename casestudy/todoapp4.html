@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            color: #333;
+            padding: 20px;
+        }
+
+        /* Giao diện ngày trong tuần */
+        .weekdays {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+
+        .day {
+            padding: 10px 20px;
+            background-color: #f4f4f4;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .day.active {
+            background-color: #ffa500;
+            color: white;
+        }
+
+        .task-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .task {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .task:last-child {
+            border-bottom: none;
+        }
+
+        .task-label {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .task-label span {
+            margin-bottom: 5px;
+        }
+
+        .task-label .time {
+            color: #999;
+        }
+
+        .checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #ccc;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .checkbox.checked {
+            background-color: #4caf50;
+            border-color: #4caf50;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Hiển thị ngày trong tuần -->
+<div class="weekdays">
+    <div class="day active" data-day="17">17<br>Thứ 6</div>
+    <div class="day" data-day="18">18<br>Thứ 7</div>
+    <div class="day" data-day="19">19<br>CN</div>
+    <div class="day" data-day="20">20<br>Thứ 2</div>
+    <div class="day" data-day="21">21<br>Thứ 3</div>
+</div>
+
+<!-- Danh sách công việc -->
+<div class="task-container" id="taskList">
+    <div class="task">
+        <div class="task-label">
+            <span>Làm bài tập về nhà môn Toán</span>
+            <span class="time">18:00 - 22:00</span>
+        </div>
+        <div class="checkbox"></div>
+    </div>
+    <div class="task">
+        <div class="task-label">
+            <span>Làm bài tập về nhà môn Văn</span>
+            <span class="time">21:00 - 22:00</span>
+        </div>
+        <div class="checkbox"></div>
+    </div>
+    <div class="task">
+        <div class="task-label">
+            <span>Xem phim</span>
+            <span class="time">22:00 - 23:00</span>
+        </div>
+        <div class="checkbox"></div>
+    </div>
+    <div class="task">
+        <div class="task-label">
+            <span>Ôn bài kiểm tra Toán</span>
+            <span class="time">22:00 - 23:00</span>
+        </div>
+        <div class="checkbox checked"></div>
+    </div>
+</div>
+
+<script>
+    // Chức năng chọn ngày
+    const days = document.querySelectorAll('.day');
+    days.forEach(day => {
+        day.addEventListener('click', function () {
+            // Bỏ chọn ngày hiện tại
+            document.querySelector('.day.active').classList.remove('active');
+            // Chọn ngày mới
+            this.classList.add('active');
+
+            // Thay đổi nhiệm vụ theo ngày được chọn
+            const selectedDay = this.getAttribute('data-day');
+            loadTasksForDay(selectedDay);
+        });
+    });
+
+    // Chức năng hiển thị nhiệm vụ theo từng ngày
+    function loadTasksForDay(day) {
+        // Giả lập dữ liệu cho mỗi ngày
+        const tasks = {
+            17: [
+                { task: 'Làm bài tập về nhà môn Toán', time: '18:00 - 22:00', completed: false },
+                { task: 'Làm bài tập về nhà môn Văn', time: '21:00 - 22:00', completed: false },
+                { task: 'Xem phim', time: '22:00 - 23:00', completed: false },
+                { task: 'Ôn bài kiểm tra Toán', time: '22:00 - 23:00', completed: true }
+            ],
+            18: [
+                { task: 'Đi chơi với bạn', time: '18:00 - 20:00', completed: false },
+                { task: 'Đọc sách', time: '21:00 - 22:00', completed: false }
+            ],
+            19: [
+                { task: 'Dọn dẹp nhà cửa', time: '08:00 - 10:00', completed: true },
+                { task: 'Nấu ăn', time: '11:00 - 12:00', completed: false }
+            ]
+        };
+
+        const taskList = document.getElementById('taskList');
+        taskList.innerHTML = ''; // Xóa nhiệm vụ hiện tại
+
+        const tasksForDay = tasks[day] || [];
+        tasksForDay.forEach(task => {
+            const taskElement = document.createElement('div');
+            taskElement.classList.add('task');
+            taskElement.innerHTML = `
+                <div class="task-label">
+                    <span>${task.task}</span>
+                    <span class="time">${task.time}</span>
+                </div>
+                <div class="checkbox ${task.completed ? 'checked' : ''}"></div>
+            `;
+            taskList.appendChild(taskElement);
+        });
+
+        // Gắn sự kiện cho các checkbox
+        document.querySelectorAll('.checkbox').forEach((checkbox, index) => {
+            checkbox.addEventListener('click', function () {
+                checkbox.classList.toggle('checked');
+                tasksForDay[index].completed = !tasksForDay[index].completed;
+            });
+        });
+    }
+
+    // Tải nhiệm vụ cho ngày đầu tiên (17)
+    loadTasksForDay(17);
+</script>
+
+</body>
+</html>
