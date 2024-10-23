@@ -8,105 +8,100 @@
             margin: 0;
             padding: 0;
         }
-
+        
         body {
-            background-color: #c1ede8;
+            background-color: #d1f6f2;
         }
-
+        
         .container {
             background-color: #80c1ba;
-            width: 610px;
+            width: 70%;
             height: 700px;
             margin: 10px auto;
+            box-shadow: 1px 1px 10px 1px #888888;
+            border-radius: 5px;
         }
-
+        
         .container-title {
             background-color: #3d8880;
             padding: 10px;
             color: #fff;
         }
-
+        
         tr {
             height: 50px;
         }
-
-
+        
+        
         td {
             text-align: center;
             width: 200px;
             border-bottom: 1px solid black;
         }
-
+        
         .nameTask {
             width: 100%;
+            text-align: left;
+            padding-left: 10px;
         }
-
+        
         .btn {
-            background-color: green;
+            background-color: #ee4761;
             color: white;
             width: 70px;
             height: 30px;
             border: none;
-            border-radius: 5%;
+            border-radius: 4px;
         }
-
-        .btnComplete {
-            text-decoration: line-through;
-        }
-
-        /* Dấu checkmark xuất hiện khi hoàn thành */
-        .nameTask.completed::before {
-            content: '✔'; /* Dấu checkmark */
-            color: green;
-            font-size: 18px;
-            margin-right: 10px;
-        }
-
+        
         #add {
+            width: 100px;
+            height: 42px;
             margin: 10px 0;
+            padding: 10px;
         }
-
+        
         .inputTask {
-            width: 610px;
-            height: 100px;
-            background-color: #f4f4f4;
-        }
-
-        #inputTaskValue {
             width: 100%;
+            height: 100px;
+            background-color: #80c1ba;
+            display: flex;
+            flex-direction: row;
         }
-
-        #taskName {
-
-            background-color: #4c7edb;
+        
+        #inputTaskValue {
+            width: 50%;
+            padding: 5px;
+            height: 30px;
+            border-radius: 4px;
+            border: 1px solid transparent;
+            margin: 10px;
         }
-
-        /* Dấu checkmark xuất hiện khi hoàn thành */
-        .nameTask.completed::before {
-            content: '✔'; /* Dấu checkmark */
-            color: green;
-            font-size: 18px;
-            margin-right: 10px;
+        
+        #alertProcess {
+            border-bottom: 1px solid black;
+            width: 100%;
+            margin: 10px;
         }
-
+        
+        
         /* Gạch ngang text khi task hoàn thành */
         .nameTask.completed {
             text-decoration: line-through;
         }
-
+    
     </style>
 </head>
 <body>
 <div class="container">
     <div class="container-title"><h1>Task Manager</h1></div>
-    <div>
-        <h4>Calender</h4>
-    </div>
+    
     <div class="inputTask">
         <input type="text" id="inputTaskValue" placeholder="Nhập công việc">
         <button id="add" class="btn">Thêm mới</button>
-        <p id="alertProcess"></p>
+    
     </div>
+    <p id="alertProcess"></p>
     <div id="result"></div>
 </div>
 <script>
@@ -118,43 +113,48 @@
             this.completed = false;
         }
     }
-
+    
     // Hàm hiển thị danh sách các nhiệm vụ ra giao diện
     function display(tasks) {
         let result = "<table>";
-        for (let i = 0; i < tasks.length; i++) {
+        for ( let i = 0; i < tasks.length; i++ ) {
             result += "<tr>";
             // result += `<td class="nameTask" id="taskName">${tasks[i].name}</td>`;
             let taskClass = "nameTask";
-            if( tasks[i].completed){
-                taskClass += "completed"
+            if ( tasks[i].completed ) {
+                taskClass += " completed";
+                console.log(taskClass);
+            } else {
+                taskClass += "";
             }
-            result += `<td class="nameTask ${tasks[i].completed ? 'completed' : ''}" id="taskName-${i}">${tasks[i].name}</td>`;
-            result += `<td class="nameTask ${tasks[i].completed ? 'completed' : ''}" id="taskName-${i}">${tasks[i].name}</td>`;
+            result += `<td class="${taskClass}" id="taskName-${i}">${tasks[i].name}</td>`;
             result += `<td><button class="btn" onclick="editTask(${i})">Edit</button></td>`;
             result += `<td><button class="btn" onclick="deleteTask(${i})">Delete</button></td>`;
-            // result += `<td><button class="btn" onclick="toggleComplete(${i})">Completed</button></td>`
-
-            result += `<td><button class="btn" onclick="toggleComplete(${i})">${tasks[i].completed ? 'Back' : 'Complete'}</button></td>`;
-
+            result += `<td><button class="btn" onclick="toggleComplete(${i})">`;
+            if ( tasks[i].completed ) {
+                result += "Back";
+            } else {
+                result += "Complete";
+            }
+            result += `</button></td>`;
             result += "</tr>";
-
+            
         }
         result += "</table>";
         document.getElementById("result").innerHTML = result;
     }
-
+    
     function toggleComplete(index) {
         // Đảo trạng thái hoàn thành của task
         tasks[index].completed = !tasks[index].completed;
         display(tasks);
     }
-
+    
     // Hàm thêm nhiệm vụ mới
     document.getElementById("add").addEventListener("click", function () {
         let taskName = document.getElementById("inputTaskValue").value;
         let task = {};
-        if (taskName.length > 5 && taskName.length < 100) {
+        if ( taskName.length > 5 && taskName.length < 100 ) {
             task = new Task(tasks.length + 1, taskName);
         } else {
             alert("Tên công việc phải từ 5 đến 100 ký tự");
@@ -166,27 +166,27 @@
         document.getElementById("alertProcess").innerHTML = "Bạn đã thêm công việc thành công";
         document.getElementById("taskInput").value = "";
     });
-
+    
     // Hàm xóa nhiệm vụ
     function deleteTask(index) {
         let isDelete = confirm(`Bạn có chắc muốn xóa công việc "${tasks[index].name}"?`);
-        if (isDelete) {
+        if ( isDelete ) {
             tasks.splice(index, 1);
             display(tasks);
             alert("Xóa thành công");
         }
     }
-
+    
     // Hàm sửa nhiệm vụ
     function editTask(index) {
         let newTaskName = prompt("Sửa công việc:", tasks[index].name);
-        if (newTaskName !== null && newTaskName.trim() !== '') {
+        if ( newTaskName !== null && newTaskName.trim() !== "" ) {
             tasks[index].name = newTaskName;
             display(tasks);
             alert("Cập nhật công việc thành công");
         }
     }
-
+    
     // Hàm đánh dấu hoàn thành / chưa hoàn thành nhiệm vụ
     // function toggleComplete(index) {
     //
@@ -200,14 +200,14 @@
     //     tasks[index].completed = !tasks[index].completed;
     //     display(tasks);
     // }
-
+    
     // Khởi tạo danh sách nhiệm vụ
     let tasks = [];
     tasks.push(new Task(1, "Làm bài tập JavaScript"));
     tasks.push(new Task(2, "Đọc sách về lập trình"));
     tasks.push(new Task(3, "Đọc sách về lập trình"));
     tasks.push(new Task(4, "Đọc sách về lập trình"));
-
+    
     // Hiển thị danh sách nhiệm vụ lúc ban đầu
     display(tasks);
 </script>
