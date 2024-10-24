@@ -27,11 +27,13 @@
             padding: 10px;
             color: #fff;
         }
-        
+        #result{
+            width: 100%;
+            
+        }
         tr {
             height: 50px;
         }
-        
         
         td {
             text-align: center;
@@ -81,15 +83,12 @@
         #alertProcess {
             border-bottom: 1px solid black;
             width: 100%;
-            margin: 10px;
+            
         }
-        
-        
-        /* Gạch ngang text khi task hoàn thành */
         .nameTask.completed {
             text-decoration: line-through;
         }
-    
+        
     </style>
 </head>
 <body>
@@ -102,7 +101,10 @@
     
     </div>
     <p id="alertProcess"></p>
+    
     <div id="result"></div>
+    
+    
 </div>
 <script>
     // Lớp Task định nghĩa một nhiệm vụ trong To-Do List
@@ -204,9 +206,9 @@
     // Khởi tạo danh sách nhiệm vụ
     let tasks = [];
     tasks.push(new Task(1, "Làm bài tập JavaScript"));
-    tasks.push(new Task(2, "Đọc sách về lập trình"));
-    tasks.push(new Task(3, "Đọc sách về lập trình"));
-    tasks.push(new Task(4, "Đọc sách về lập trình"));
+    tasks.push(new Task(2, "Làm bài tập trên Bob"));
+    tasks.push(new Task(3, "Luyện tập trên Bob"));
+    tasks.push(new Task(4, "Làm 10 bài tập trên Hackerank"));
     
     // Hiển thị danh sách nhiệm vụ lúc ban đầu
     display(tasks);
