@@ -1,5 +1,6 @@
 package ss2_loop.bai_tap;
 
+import java.math.BigInteger;
 import java.util.Scanner;
 
 public class ShowPrime {
