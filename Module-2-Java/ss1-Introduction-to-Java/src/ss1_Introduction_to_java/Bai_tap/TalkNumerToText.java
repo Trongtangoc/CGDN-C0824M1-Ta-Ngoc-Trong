@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class TalkNumerToText {
         // Mảng cho các số hàng đơn vị và số đặc biệt (10 - 19)
+    //test github
     private static final String[] ones = {"", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
     private static final String[] teens = {"ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"};
     private static final String[] tens = {"", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"};
