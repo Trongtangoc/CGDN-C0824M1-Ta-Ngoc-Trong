@@ -29,6 +29,13 @@ public class StudentOfDemoMain {
 
         }
     }
+    public int getCode() {
+        if(code < 0){
+            return 0;
+        }
+        return 0;
+    }
+
 
     @Override
     public String toString() {
