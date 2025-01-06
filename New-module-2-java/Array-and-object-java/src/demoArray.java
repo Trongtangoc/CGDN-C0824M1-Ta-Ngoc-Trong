@@ -4,8 +4,8 @@ public class demoArray {
         // or elementType arrayName[]
         double[] myList;
         double myList2[];
-        //Khoi tao Array
-        //arrayName = new elementType[arraySize];
+        /* Khoi tao Array
+           arrayName = new elementType[arraySize];*/
         double[] myList3 = new double[10];
         double myList4[] = new double[10];
         //Duyet Mang
