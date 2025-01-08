@@ -6,10 +6,10 @@ public class Main {
         int[] numbers = {10,4,6,7,8,6,0,0,0,0,0};
         System.out.println("Nhap phan tu can xoa");
         Scanner sc = new Scanner(System.in);
-        int x = sc.nextInt();
+        int valueRemove = sc.nextInt();
         int index_del = -1;
         for (int i = 0; i < numbers.length; i++) {
-            if (numbers[i] == x) {
+            if (numbers[i] == valueRemove) {
                 index_del = i;
             }
         }
@@ -18,7 +18,7 @@ public class Main {
             }
         numbers[numbers.length-1] = 0;
         for(int i = 0; i < numbers.length-1; i++) {
-            System.out.println(numbers[i]);
+            System.out.print(numbers[i]+" ");
         }
     }
 }
