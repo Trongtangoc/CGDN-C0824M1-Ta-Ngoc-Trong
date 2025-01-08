@@ -8,7 +8,8 @@ public class StudentArray {
         String studentName = scanner.nextLine();
         boolean flag = false;
         for (int i = 0; i < students.length; i++) {
-            if (students[i].equals(studentName)){
+            //equalsIgnoreCase  khong phan biet viet hoa va viet thuong
+            if (students[i].equalsIgnoreCase(studentName)){
                 System.out.println("Position of student " + studentName + " is " + i);
                 flag = true;
                 break;
