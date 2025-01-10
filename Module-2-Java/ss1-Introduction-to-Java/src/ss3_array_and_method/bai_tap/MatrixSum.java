@@ -1,5 +1,5 @@
 package ss3_array_and_method.bai_tap;
-import java.util.Scanner;   
+import java.util.Scanner;
 public class MatrixSum {
 
     // Bước 1: Viết hàm tính tổng các phần tử trên đường chéo chính
