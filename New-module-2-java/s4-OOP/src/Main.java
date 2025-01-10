@@ -6,7 +6,7 @@ public class Main {
 //        System.out.println(user2.getName());
         User[] list = new User[10];
         for (int i = 0; i < 10; i++) {
-            User user = new User( i + 1, "name" + i, "age " + i);
+            User user = new User();
             list[i] = user;
         }
         for (User item : list){
