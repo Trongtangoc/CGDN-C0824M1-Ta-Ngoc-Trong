@@ -6,7 +6,6 @@ public class User {
 
 
     public User() {
-
     }
     public User(int id ,String name, String email, int age) {
         this.id = id;
@@ -15,23 +14,22 @@ public class User {
         this.age = age;
     }
 
+    public int getId() {
+        return id;
+    }
+
     public String getName() {
         return name;
     }
-    public void getInfo(){
-        System.out.print("id: " + id);
-        System.out.print("Name: " + name);
-        System.out.print("Email: " + email);
-        System.out.print("Age: " + age);
-
+    public String getEmail() {
+        return email;
     }
-
     public int getAge() {
         return age;
     }
 
     @Override
     public String toString() {
-        return "id= " + id + ", name='" + name + "', age='" + age + "'";
+        return "id= " + id + ", name='" + name + ", Email: " + email + " age" + age;
     }
 }

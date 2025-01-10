@@ -1,21 +1,51 @@
 public class UserManager {
     private User[] listUser;
-    private int size;
-    public UserManager() {
-        listUser = new User[100];
-        this.size = size;
+    private int limit;
+    public UserManager() {}
+
+    public UserManager(int limit) {
+    this.listUser = new User[0];
+    this.limit = limit;
     }
+
     public void addUser(User user) {
         int totalCurrentUser = listUser.length;
-        User[] newListUser = new User[totalCurrentUser + 1];
+        if (totalCurrentUser < limit) {
+            listUser[totalCurrentUser] = user;
+        }
+        else {
+            System.out.println("User list is full. Cannot add more users.");
+        }
     }
-    public void removeUser(User user) {
+    public void removeUser(int id) {
+        boolean found = false;
         int totalCurrentUser = listUser.length;
-        User[] newListUser = new User[totalCurrentUser - 1];
+
+        for (int i = 0; i < totalCurrentUser; i++) {
+            if (listUser[i].getId() == id) {
+                found = true;
+                for (int j = i; j < totalCurrentUser - 1; j++) {
+                    listUser[j] = listUser[j + 1];
+                }
+                listUser[totalCurrentUser - 1] = null;
+                totalCurrentUser--;
+                System.out.println("User with ID " + id + " has been removed.");
+                break;
+            }
+        }
+        if (!found) {
+            System.out.println("User with ID " + id + " not found.");
+        }
     }
     public void showListUser() {
-        for (User user : listUser) {
-            System.out.println(user);
+        int totalCurrentUser = listUser.length;
+
+        if (totalCurrentUser == 0) {
+            System.out.println("The user list is empty.");
+        } else {
+            for (int i = 0; i < totalCurrentUser; i++) {
+                System.out.println(listUser[i]);
+            }
         }
     }
 }
