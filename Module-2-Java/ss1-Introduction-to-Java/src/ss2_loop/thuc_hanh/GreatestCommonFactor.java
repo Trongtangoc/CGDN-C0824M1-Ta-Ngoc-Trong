@@ -1,7 +1,7 @@
 package ss2_loop.thuc_hanh;
 
 import java.util.Scanner;
-
+//Uoc chung lon nhat
 public class GreatestCommonFactor {
     public static void main(String[] args) {
         int a, b;
