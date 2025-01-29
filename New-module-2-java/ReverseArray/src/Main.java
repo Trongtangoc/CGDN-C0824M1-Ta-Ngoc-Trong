@@ -19,13 +19,18 @@ public class Main {
             array[i] = sc.nextInt();
             i++;
         }
-        System.out.printf("%-20s%s", "Element in array: ", "");
+        System.out.printf("%-20s", "Element in array: ");
         for(int j = 0; j < array.length; j++) {
-            System.out.printf(array[j] + "\t ");
+            System.out.printf("%-4d", array[j]);
         }
         for (int j = 0; j < array.length/2; j++) {
             int temp = array[j];
-            array[j] = array[size - 1 - j]
+            array[j] = array[size - 1 - j];
+            array[size - 1 - j] = temp;
+        }
+        System.out.printf("\n%-20s","Reverse array");
+        for(int j = 0; j < array.length; j++) {
+            System.out.printf("%-4d", array[j]);
         }
     }
 
