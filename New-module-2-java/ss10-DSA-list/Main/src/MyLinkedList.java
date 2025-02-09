@@ -5,7 +5,7 @@ public class MyLinkedList implements ILinkedList{
 
     @Override
     public void addFirstNode(Node node) {
-    
+
     }
 
     @Override
