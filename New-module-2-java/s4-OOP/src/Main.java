@@ -1,32 +1,59 @@
+import java.sql.SQLOutput;
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        // Khoi tao object user;
-//        User user1 = new User();
-//        User user2 = new User(" name 01", 30);
-//        System.out.println(user2.getName());
+        Scanner scanner = new Scanner(System.in);
+        UserManager userManager = new UserManager(15);
+        userManager.addUser(new User(0,"trong","trong@gmail.com",20));
 
-        UserManager userManager = new UserManager(4);
-        userManager.addUser(new User(1, "Alice", "alice@example.com", 25));
-        userManager.addUser(new User(2, "Bob", "bob@example.com", 30));
-        userManager.addUser(new User(3, "Charlie", "charlie@example.com", 22));
-        // Hiển thị danh sách User
-        System.out.println("User List:");
-        userManager.showListUser();
+        while (true) {
+            System.out.println("\n===== MENU =====");
+            System.out.println("1. Add User");
+            System.out.println("2. Show User List");
+            System.out.println("3. Remove User");
+            System.out.println("0. Exit");
+            System.out.print("Your choice: ");
 
-        // Xóa User với ID = 2
-//        userManager.removeUser(2);
+            int choice = scanner.nextInt();
+            scanner.nextLine(); // Xử lý dòng thừa sau khi nhập số
 
-        // Hiển thị danh sách User sau khi xóa
-//        System.out.println("User List after removal:");
-//        userManager.showListUser();
-//        User[] list = new User[10];
-//        for (int i = 0; i < 10; i++) {
-//            User user = new User();
-//            list[i] = user;
-//        }
-//        for (User item : list){
-//            System.out.println(item);
-//        }
-        
-    }
-}
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter ID: ");
+                    int id = scanner.nextInt();
+                    scanner.nextLine(); // Xử lý dòng thừa
+
+                    System.out.print("Enter name: ");
+                    String name = scanner.nextLine();
+
+                    System.out.print("Enter email: ");
+                    String email = scanner.nextLine();
+
+                    System.out.print("Enter age: ");
+                    int age = scanner.nextInt();
+                    scanner.nextLine(); // Xử lý dòng thừa
+
+                    userManager.addUser(new User(id, name, email, age));
+                    System.out.println("User added successfully!");
+                    break;
+
+                case 2:
+//                    System.out.println("User List:");
+                    userManager.showListUser();
+                    break;
+
+                case 3:
+                    System.out.print("Enter ID to remove: ");
+                    int removeId = scanner.nextInt();
+                    userManager.removeUser(removeId);
+                    break;
+
+                case 0:
+                    System.out.println("Exiting...");
+                    scanner.close();
+                    return;
+
+                default:
+                    System.out.println("Invalid choice");
+            }}}}
