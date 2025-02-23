@@ -71,7 +71,6 @@ public class Main {
             if (isPrime(number)) {
                 System.out.print(number + " ");
                 count++;
-
             }
             number++;
         }
