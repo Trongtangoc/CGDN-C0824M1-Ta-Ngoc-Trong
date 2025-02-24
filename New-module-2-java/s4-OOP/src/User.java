@@ -7,7 +7,8 @@ public class User {
 
     public User() {
     }
-    public User(int id ,String name, String email, int age) {
+
+    public User(int id, String name, String email, int age) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -21,15 +22,17 @@ public class User {
     public String getName() {
         return name;
     }
+
     public String getEmail() {
         return email;
     }
+
     public int getAge() {
         return age;
     }
 
     @Override
     public String toString() {
-        return "id= " + id + ", name='" + name + ", Email: " + email + " age" + age;
+        return "Id= " + id + ", Name = " + name + ", Email: " + email + ", age: " + age;
     }
 }

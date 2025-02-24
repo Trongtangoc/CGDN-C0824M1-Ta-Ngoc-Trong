@@ -1,19 +1,18 @@
 public class UserManager {
     private User[] listUser;
     private int limit;
-    public UserManager() {}
+    private int currentSize = 0; // Thêm biến theo dõi số user hiện có
 
     public UserManager(int limit) {
-    this.listUser = new User[0];
-    this.limit = limit;
+        this.listUser = new User[limit];
+        this.limit = limit;
     }
 
     public void addUser(User user) {
-        int totalCurrentUser = listUser.length;
-        if (totalCurrentUser < limit) {
-            listUser[totalCurrentUser] = user;
-        }
-        else {
+        if (currentSize < limit) {
+            listUser[currentSize] = user;
+            currentSize++;
+        } else {
             System.out.println("User list is full. Cannot add more users.");
         }
     }
@@ -38,14 +37,33 @@ public class UserManager {
         }
     }
     public void showListUser() {
-        int totalCurrentUser = listUser.length;
-
-        if (totalCurrentUser == 0) {
-            System.out.println("The user list is empty.");
-        } else {
-            for (int i = 0; i < totalCurrentUser; i++) {
-                System.out.println(listUser[i]);
+//        int totalCurrentUser = listUser.length;
+//        if (totalCurrentUser == 0 ) {
+//            System.out.println("The user list is empty.");
+//        } else {
+//            for (User user : listUser) {
+//                if (user != null) {
+//                    System.out.println(user.toString());
+//                }
+//
+//            }
+//        }
+        boolean hasUser = false;
+        for (User user : listUser) {
+            if (user != null) {
+                hasUser = true;
+                System.out.println(user.toString());
+                break;
             }
         }
+        if (!hasUser) {
+            System.out.println("The user list is empty1.");
+
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Danh sach";
     }
 }
