@@ -1,5 +1,8 @@
+import baitap.Rectangle;
 import baitap.StopWatch;
 import baitap.Fan;
+
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -12,6 +15,7 @@ public class Main {
             System.out.println("========== MENU ==========");
             System.out.println("1. Test Stopwatch");
             System.out.println("2. Test Fan");
+            System.out.println("3. Test Rectangle");
             System.out.println("0. Exit");
             System.out.print("Enter your choice: ");
             mainChoice = sc.nextInt();
@@ -22,6 +26,9 @@ public class Main {
                     break;
                 case 2:
                     testFan();
+                    break;
+                case 3:
+                    testRectangle();
                     break;
                 case 0:
                     System.out.println("Exiting program. Goodbye!");
@@ -121,5 +128,18 @@ public class Main {
             arr[minIndex] = arr[i];
             arr[i] = temp;
         }
+    }
+
+    public static void testRectangle() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the width of the rectangle: ");
+        double width = sc.nextDouble();
+        System.out.print("Enter the height of the rectangle: ");
+        double height = sc.nextDouble();
+        Rectangle rectangle = new Rectangle(width, height);
+        System.out.println("Your rectangle is: " + rectangle.display());
+        System.out.println("Perimeter of the rectangle is: " + rectangle.getPerimeter());
+        System.out.println("Area of the rectangle is: " + rectangle.getArea());
+
     }
 }
