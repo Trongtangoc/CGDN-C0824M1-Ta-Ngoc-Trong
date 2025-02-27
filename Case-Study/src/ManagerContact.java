@@ -1,0 +1,66 @@
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+
+public class ManagerContact {
+    private List<Contact> contacts = new ArrayList<Contact>();
+    private static final String FILE_PATH = "data/contacts.csv";
+
+    public void addContact(Contact contact) {
+        contacts.add(contact);
+    }
+
+    public void updateContact(String phoneNumber, String group, String name, String gender, String address,
+                              String birthday, String email) {
+        for (Contact contact : contacts) {
+            if (contact.getPhoneNumber().equals(phoneNumber)) {
+                contact.update(group, name, gender, address, birthday, email);
+                return;
+            }
+        }
+        System.out.println("Contact not found");
+    }
+    public void deleteContact(String phoneNumber) {
+        contacts.removeIf(contact -> contact.getPhoneNumber().equals(phoneNumber));
+    }
+    public void searchContact(String query) {
+        for (Contact contact : contacts) {
+          if (contact.getPhoneNumber().equals(query) || contact.getName().toLowerCase().contains(query.toLowerCase()))  {
+              System.out.println(contact);
+          }
+        }
+    }
+    public void displayContacts() {
+        for (Contact contact : contacts) {
+            System.out.println(contact);
+        }
+    }
+    public void sortContacts() {
+        contacts.sort(Comparator.comparing(Contact::getName));
+    }
+    public void loadFromFile() {
+        contacts.clear();
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(FILE_PATH));
+            String line;
+            boolean firstLine = true;
+            while ((line = br.readLine()) != null){
+                if (firstLine) {
+
+                    firstLine = false;
+                    continue;
+                }
+                Contact contact = Contact.fromCSV(line);
+                if (contact != null) {
+                    contacts.add(contact);
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Error reading file" + e.getMessage());
+        }
+    }
+}
