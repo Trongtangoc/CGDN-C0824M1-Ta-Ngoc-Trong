@@ -3,11 +3,46 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
-
-public class ManagerContact {
-    private List<Contact> contacts = new ArrayList<Contact>();
+//implements IManager<Contact>
+public class ManagerContact  {
+    List<Contact> contacts;
     private static final String FILE_PATH = "src/data/contacts.csv";
 
+//    @Override
+//    public List<T> getList() {
+//        return contacts;
+//    }
+//
+//    @Override
+//    public void add(Contact contact) {
+//        contacts.add(contact);
+//
+//    }
+//
+//    @Override
+//    public void writeCSV() {
+//        String COMMA_DELIMITER = ",";
+//
+//    }
+//
+//    @Override
+//    public List<T> readCSV() {
+//        return 0;
+//    }
+//
+//    @Override
+//    public void remove(Contact contact) {
+//
+//    }
+//
+//    @Override
+//    public void clear() {
+//
+//    }
+
+    public ManagerContact() {
+        contacts = new ArrayList<Contact>();
+    }
 
     public void addContact(Contact contact) {
         if (!isValidPhoneNumber(contact.getPhoneNumber()) || !isValidEmail(contact.getEmail())) {
@@ -69,15 +104,20 @@ public class ManagerContact {
     }
 
     public void displayContacts() {
-        if (contacts.size() > 0) {
-            for (Contact contact : contacts) {
-                System.out.println(contact);
-            }
-        } else {
+        if (contacts.isEmpty()) {
             System.out.println("Contact not found. You need to add a contact or Load From File first. ");
         }
-
-
+        Scanner scanner = new Scanner(System.in);
+        int showPageSize = 5;
+        int totalContacts = contacts.size();
+        for (int i = 0; i < totalContacts; i++) {
+            System.out.println(contacts.get(i));
+            if ((i + 1) % showPageSize == 0 && (i + 1) < totalContacts) {
+                System.out.println("Press Enter to continue");
+                scanner.nextLine();
+            }
+        }
+        System.out.println("Back to main menu");
     }
 
     public void sortContacts() {
@@ -93,7 +133,7 @@ public class ManagerContact {
         System.out.println("Cảnh báo: Lựa chọn “Đọc từ File” sẽ thực hiện xoá toàn bộ danh bạ đang có trong bộ nhớ.");
         System.out.println("Bạn có chắc chắn muốn tiếp tục? (Có/Không)");
         String confirm = scanner.nextLine().trim().toLowerCase();
-        if (confirm.equals("có")) {
+        if (confirm.equals("không")) {
             System.out.println("Huỷ bỏ việc đọc file.");
             return;
         }

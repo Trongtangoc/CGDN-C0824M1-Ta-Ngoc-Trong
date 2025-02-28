@@ -1,11 +1,20 @@
 public class Contact {
-    private String phoneNumber, group, name, gender, address, birthday, email;
+    private String phoneNumber;
+    private String group;
+    private String name;
+    private String gender;
+    private String address;
+    private String birthday;
+    private String email;
 
     public Contact() {
 
     }
 
     public Contact(String phoneNumber, String group, String name, String gender, String address, String birthday, String email) {
+        if (phoneNumber.length() < 10 || phoneNumber.length() > 11) {
+            throw new IllegalArgumentException("Invalid phone number.Please enter a valid phone number.");
+        }
         this.phoneNumber = phoneNumber;
         this.group = group;
         this.name = name;
@@ -77,15 +86,16 @@ public class Contact {
     }
 
     public static Contact fromCSV(String line) {
-    String[] parts = line.split(",");
-    if(parts.length< 7)
-    {
-        return null;
-    } else{
-        return new Contact(parts[0].trim(), parts[1].trim(), parts[2].trim(), parts[3].trim(), parts[4].trim(),
-                parts[5].trim(), parts[6].trim()
-        );
-    }}
+        String[] parts = line.split(",");
+        if (parts.length < 7) {
+            return null;
+        } else {
+            return new Contact(parts[0].trim(), parts[1].trim(), parts[2].trim(), parts[3].trim(), parts[4].trim(),
+                    parts[5].trim(), parts[6].trim()
+            );
+        }
+    }
+
     public void update(String group, String name, String gender, String address, String birthday, String email) {
         this.group = group;
         this.name = name;
@@ -95,6 +105,7 @@ public class Contact {
         this.email = email;
 
     }
+
     @Override
     public String toString() {
         return phoneNumber + " - " + name + " - " + group + " - " + gender + " - " + address + " - " + birthday + " - " + email;
