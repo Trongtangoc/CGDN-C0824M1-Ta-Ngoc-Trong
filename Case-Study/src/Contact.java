@@ -76,8 +76,8 @@ public class Contact {
         return String.join(",", phoneNumber, group, name, gender, address, birthday, email);
     }
 
-    public static Contact fromCSV(String csv) {
-    String[] parts = line.split;
+    public static Contact fromCSV(String line) {
+    String[] parts = line.split(",");
     if(parts.length< 7)
     {
         return null;

@@ -1,7 +1,4 @@
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -60,7 +57,22 @@ public class ManagerContact {
                 }
             }
         } catch (IOException e) {
-            System.out.println("Error reading file" + e.getMessage());
+            System.out.println("Error reading file: " + e.getMessage());
+        }
+    }
+    public void saveToFile() {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(FILE_PATH));){
+            bw.write("PhoneNumber,Group,Name,Gender,Address,BirthDate,Email");
+            bw.newLine();
+            for (Contact contact : contacts) {
+                bw.write(contact.toCSV());
+                bw.newLine();
+            }
+
+        }
+        catch (IOException e) {
+            System.out.println("Error writing file" + e.getMessage());
+            e.printStackTrace();
         }
     }
 }
