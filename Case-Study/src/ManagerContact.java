@@ -9,7 +9,14 @@ public class ManagerContact {
 
 
     public void addContact(Contact contact) {
+        if(!isValidPhoneNumber(contact.getPhoneNumber())){
+            throw new IllegalArgumentException("Invalid phone number");
+        }
         contacts.add(contact);
+    }
+
+    private boolean isValidPhoneNumber(String phoneNumber) {
+        return phoneNumber.matches("^[0-9]{10}$");
     }
 
     public void updateContact(String phoneNumber, String group, String name, String gender, String address,
