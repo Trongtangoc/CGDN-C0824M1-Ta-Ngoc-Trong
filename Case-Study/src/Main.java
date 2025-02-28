@@ -16,8 +16,8 @@ public class Main {
             System.out.println("4. Xoá");
             System.out.println("5. Tìm kiếm");
             System.out.println("6. Sắp xếp");
-            System.out.println("7. Ghi vào file");
-            System.out.println("8. Đọc từ file");
+            System.out.println("7. Đọc từ file");
+            System.out.println("8. Ghi vào file");
             System.out.println("0. Thoát");
             System.out.print("Chọn chức năng: ");
             int choice = scanner.nextInt();
@@ -74,10 +74,10 @@ public class Main {
                     manager.sortContacts();
                     break;
                 case 7:
-                    manager.saveToFile();
+                    manager.loadFromFile();
                     break;
                 case 8:
-                    manager.loadFromFile();
+                    manager.saveToFile();
                     break;
                 case 0:
                     scanner.close();
