@@ -25,15 +25,30 @@ public class ManagerContact {
         return phoneNumber.matches("^[0-9]{10}$");
     }
 
-    public void updateContact(String phoneNumber, String group, String name, String gender, String address,
-                              String birthday, String email) {
+    public void updateContact() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter contact number: ");
+        String updatePhoneNumber = scanner.nextLine();
+        Contact updateContact = null;
         for (Contact contact : contacts) {
             if (contact.getPhoneNumber().equals(phoneNumber)) {
-                contact.update(group, name, gender, address, birthday, email);
-                return;
+                updateContact = contact;
+                break;
             }
         }
-        System.out.println("Contact not found");
+        if (updateContact == null) {
+            System.out.println("Contact not found");
+            return;
+        }
+        System.out.println("Update Contact ");
+        System.out.println("Update New Contact ");
+        updateContact.setPhoneNumber(updatePhoneNumber);
+        updateContact.setEmail(updatePhoneNumber);
+        updateContact.setName(updatePhoneNumber);
+        updateContact.setAddress(updatePhoneNumber);
+        updateContact.setBirthday(updatePhoneNumber);
+        updateContact.setGender(updatePhoneNumber);
+
     }
     public void deleteContact(String phoneNumber) {
         contacts.removeIf(contact -> contact.getPhoneNumber().equals(phoneNumber));
@@ -68,7 +83,7 @@ public class ManagerContact {
         System.out.println("The file has "+ new File(FILE_PATH).length() + " bytes");
         //warning ở đây
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Cảnh báo: Lựa chọn “Đọc từ File” sẽ thực hiện xoá  toàn bộ danh bạ đang có trong bộ nhớ.");
+        System.out.println("Cảnh báo: Lựa chọn “Đọc từ File” sẽ thực hiện xoá toàn bộ danh bạ đang có trong bộ nhớ.");
         System.out.println("Bạn có chắc chắn muốn tiếp tục? (Có/Không)");
         String confirm = scanner.nextLine().trim().toLowerCase();
         if (confirm.equals("có")) {
