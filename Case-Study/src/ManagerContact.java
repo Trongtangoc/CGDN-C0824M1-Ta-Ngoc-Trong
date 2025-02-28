@@ -5,7 +5,8 @@ import java.util.List;
 
 public class ManagerContact {
     private List<Contact> contacts = new ArrayList<Contact>();
-    private static final String FILE_PATH = "data/contacts.csv";
+    private static final String FILE_PATH = "src/data/contacts.csv";
+
 
     public void addContact(Contact contact) {
         contacts.add(contact);
@@ -40,14 +41,16 @@ public class ManagerContact {
         contacts.sort(Comparator.comparing(Contact::getName));
     }
     public void loadFromFile() {
-        contacts.clear();
-        try {
-            BufferedReader br = new BufferedReader(new FileReader(FILE_PATH));
-            String line;
+        //Check file exist or not?
+        System.out.println("Does it exist? " + new File(FILE_PATH).exists());
+        System.out.println("The file has "+ new File(FILE_PATH).length() + " bytes");
+
+        try (BufferedReader br = new BufferedReader(new FileReader(FILE_PATH))){
+
+            String line = null;
             boolean firstLine = true;
             while ((line = br.readLine()) != null){
                 if (firstLine) {
-
                     firstLine = false;
                     continue;
                 }
@@ -56,12 +59,14 @@ public class ManagerContact {
                     contacts.add(contact);
                 }
             }
+            System.out.println("Read " + contacts.size() + " contacts");
         } catch (IOException e) {
             System.out.println("Error reading file: " + e.getMessage());
         }
     }
     public void saveToFile() {
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(FILE_PATH));){
+
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(FILE_PATH))){
             bw.write("PhoneNumber,Group,Name,Gender,Address,BirthDate,Email");
             bw.newLine();
             for (Contact contact : contacts) {

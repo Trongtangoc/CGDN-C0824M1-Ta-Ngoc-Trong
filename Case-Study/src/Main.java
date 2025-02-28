@@ -74,12 +74,13 @@ public class Main {
                     manager.sortContacts();
                     break;
                 case 7:
-                    manager.loadFromFile();
-                    break;
-                case 8:
                     manager.saveToFile();
                     break;
+                case 8:
+                    manager.loadFromFile();
+                    break;
                 case 0:
+                    scanner.close();
                     return;
                 default:
                     System.out.println("Chọn sai, vui lòng nhập lại");

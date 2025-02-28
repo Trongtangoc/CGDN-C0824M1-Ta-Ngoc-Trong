@@ -1,3 +1,1 @@
-1,PhoneNumber,Group,Name,Gender,Address,BirthDate,Email
-2,971234567,CodeGym,Nguyen Van A,Nam,My Dinh - Ha Noi,1/1/1989,vana@codegym.vn
-3,971234568,Ban Be,Nguyen Van B,Nu,Thanh Xuân - Hà Noi,1/1/1990,nguyenthib@codegym.vn
+PhoneNumber,Group,Name,Gender,Address,BirthDate,Email
