@@ -24,7 +24,7 @@ public class Main {
             scanner.nextLine();
             switch (choice) {
                 case 1:
-                    manager.displayContacts();
+                    manager.getList();
                     break;
                 case 2:
                     System.out.print("Nhập số điện thoại: ");
@@ -42,42 +42,45 @@ public class Main {
                     System.out.print("Nhập email: ");
                     String email = scanner.nextLine();
                     manager.addContact(new Contact(phone, group, name, gender, address, birthDate, email));
-                    System.out.println();
+                    System.out.println("Đã thêm vào danh bạ");
                     break;
                 case 3:
-                    System.out.print("Nhập số điện thoại cần cập nhật: ");
-                    String updatePhone = scanner.nextLine();
-                    System.out.print("Nhập nhóm mới: ");
-                    String updateGroup = scanner.nextLine();
-                    System.out.print("Nhập họ tên mới: ");
-                    String updateName = scanner.nextLine();
-                    System.out.print("Nhập giới tính mới: ");
-                    String updateGender = scanner.nextLine();
-                    System.out.print("Nhập địa chỉ mới: ");
-                    String updateAddress = scanner.nextLine();
-                    System.out.print("Nhập ngày sinh mới: ");
-                    String updateBirthDate = scanner.nextLine();
-                    System.out.print("Nhập email mới: ");
-                    String updateEmail = scanner.nextLine();
-                    manager.updateContact(updatePhone, updateGroup, updateName, updateGender, updateAddress, updateBirthDate, updateEmail);
+                    // Sửa danh bạ (cập nhật)
+                    System.out.print("Nhập số điện thoại danh bạ cần sửa: ");
+                    String phoneUpdate = scanner.nextLine();
+                    // Tạo 1 contact tạm chứa phoneUpdate để manager biết cần update ai
+                    // (Tuỳ logic bạn muốn)
+                    Contact updateContact = findContactByPhone(manager, phoneUpdate);
+                    if (updateContact == null) {
+                        System.out.println("Không tìm thấy danh bạ với số ĐT: " + phoneUpdate);
+                        break;
+                    }
+                    // Cho người dùng nhập dữ liệu mới, set lại phoneNumber = cũ
+                    Contact updatedInfo = inputContact(scanner);
+                    if (updatedInfo != null) {
+                        updatedInfo.setPhoneNumber(phoneUpdate);
+                        manager.update(updatedInfo);
+                        System.out.println("Cập nhật thành công!");
+                    }
                     break;
                 case 4:
                     System.out.print("Nhập số điện thoại cần xoá: ");
                     String deletePhone = scanner.nextLine();
-                    manager.deleteContact(deletePhone);
+                    manager.remove(deletePhone);
                     break;
                 case 5:
                     System.out.print("Nhập số điện thoại hoặc họ tên để tìm kiếm: ");
-                    manager.searchContact(scanner.nextLine());
+                    manager.search(scanner.nextLine());
                     break;
                 case 6:
                     manager.sortContacts();
                     break;
                 case 7:
-                    manager.loadFromFile();
+                    manager.readCSV();
+
                     break;
                 case 8:
-                    manager.saveToFile();
+                    manager.writeCSV();
                     break;
                 case 0:
                     scanner.close();
@@ -86,5 +89,37 @@ public class Main {
                     System.out.println("Chọn sai, vui lòng nhập lại");
             }
         }
+    }
+
+    private static Contact inputContact(Scanner sc ) {
+        try {
+            System.out.print("Nhóm: ");
+            String group = sc.nextLine();
+            System.out.print("Số ĐT: ");
+            String phone = sc.nextLine();
+            System.out.print("Họ tên: ");
+            String name = sc.nextLine();
+            System.out.print("Giới tính: ");
+            String gender = sc.nextLine();
+            System.out.print("Địa chỉ: ");
+            String address = sc.nextLine();
+            System.out.print("Ngày sinh: ");
+            String dob = sc.nextLine();
+            System.out.print("Email: ");
+            String email = sc.nextLine();
+            return new Contact(phone, group, name, gender, address, dob, email);
+        } catch (Exception e) {
+            System.out.println("Lỗi khi nhập Contact: " + e.getMessage());
+            return null;
+        }
+    }
+
+    private static Contact findContactByPhone(ManagerContact manager, String phoneUpdate) {
+        for (Contact contact : manager.getList()) {
+            if (contact.getPhoneNumber().equals(phoneUpdate)) {
+                return contact;
+            }
+        }
+        return null;
     }
 }
