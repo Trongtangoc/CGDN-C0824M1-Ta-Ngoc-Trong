@@ -1,5 +1,7 @@
 import com.sun.security.jgss.GSSUtil;
 
+import java.awt.*;
+import java.util.List;
 import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -20,6 +22,9 @@ public class Main {
             System.out.println("8. Ghi vào file");
             System.out.println("0. Thoát");
             System.out.print("Chọn chức năng: ");
+
+            //"2. Thêm mới");  System.out.println("8. Ghi vào file"); ("7. Đọc từ file");
+
             int choice = scanner.nextInt();
             scanner.nextLine();
             switch (choice) {
@@ -41,22 +46,22 @@ public class Main {
                     String birthDate = scanner.nextLine();
                     System.out.print("Nhập email: ");
                     String email = scanner.nextLine();
-                    manager.addContact(new Contact(phone, group, name, gender, address, birthDate, email));
+                    manager.add(new Contact(phone, group, name, gender, address, birthDate, email));
                     System.out.println("Đã thêm vào danh bạ");
+
                     break;
                 case 3:
                     // Sửa danh bạ (cập nhật)
                     System.out.print("Nhập số điện thoại danh bạ cần sửa: ");
                     String phoneUpdate = scanner.nextLine();
-                    // Tạo 1 contact tạm chứa phoneUpdate để manager biết cần update ai
-                    // (Tuỳ logic bạn muốn)
                     Contact updateContact = findContactByPhone(manager, phoneUpdate);
                     if (updateContact == null) {
                         System.out.println("Không tìm thấy danh bạ với số ĐT: " + phoneUpdate);
                         break;
                     }
-                    // Cho người dùng nhập dữ liệu mới, set lại phoneNumber = cũ
+
                     Contact updatedInfo = inputContact(scanner);
+
                     if (updatedInfo != null) {
                         updatedInfo.setPhoneNumber(phoneUpdate);
                         manager.update(updatedInfo);
@@ -65,19 +70,28 @@ public class Main {
                     break;
                 case 4:
                     System.out.print("Nhập số điện thoại cần xoá: ");
-                    String deletePhone = scanner.nextLine();
-                    manager.remove(deletePhone);
+                    String phoneRemove = scanner.nextLine();
+                    Contact removeContact = new Contact();
+                    removeContact.setPhoneNumber(phoneRemove);
+                    manager.remove(removeContact);
                     break;
+
+
                 case 5:
                     System.out.print("Nhập số điện thoại hoặc họ tên để tìm kiếm: ");
-                    manager.search(scanner.nextLine());
+                    String keyWord = scanner.nextLine();
+                    Contact searchContact = new Contact();
+                    searchContact.setPhoneNumber(keyWord);
+                    manager.search(searchContact);
                     break;
                 case 6:
-                    manager.sortContacts();
+                    manager.sort(manager.getList());
+                    // Xem danh sách sau khi sắp xếp
+                    manager.displayContacts();
                     break;
+
                 case 7:
                     manager.readCSV();
-
                     break;
                 case 8:
                     manager.writeCSV();
@@ -91,23 +105,23 @@ public class Main {
         }
     }
 
-    private static Contact inputContact(Scanner sc ) {
+    private static Contact inputContact(Scanner sc) {
         try {
-            System.out.print("Nhóm: ");
+            System.out.print("Nhóm mới: ");
             String group = sc.nextLine();
-            System.out.print("Số ĐT: ");
+            System.out.print("Số ĐT mới: ");
             String phone = sc.nextLine();
-            System.out.print("Họ tên: ");
+            System.out.print("Họ tên mới: ");
             String name = sc.nextLine();
-            System.out.print("Giới tính: ");
+            System.out.print("Giới tính mới: ");
             String gender = sc.nextLine();
-            System.out.print("Địa chỉ: ");
+            System.out.print("Địa chỉ mới: ");
             String address = sc.nextLine();
-            System.out.print("Ngày sinh: ");
-            String dob = sc.nextLine();
-            System.out.print("Email: ");
+            System.out.print("Ngày sinh mới: ");
+            String dateOfBirth = sc.nextLine();
+            System.out.print("Email mới: ");
             String email = sc.nextLine();
-            return new Contact(phone, group, name, gender, address, dob, email);
+            return new Contact(phone, group, name, gender, address, dateOfBirth, email);
         } catch (Exception e) {
             System.out.println("Lỗi khi nhập Contact: " + e.getMessage());
             return null;

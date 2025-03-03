@@ -11,3 +11,4 @@ public interface IManager<T> {
     List<T> readCSV();
     void clear();
 }
+
