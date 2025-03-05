@@ -45,7 +45,7 @@ public class StudentManager {
         }
     }
 
-    private int generateStudentId() {
+    private int generateStudentIdAuto() {
         if (students.isEmpty()) {
             return 1;
         } else {
@@ -113,11 +113,11 @@ public class StudentManager {
 
     public void addStudent(Scanner scanner) {
         System.out.println("Nhập thông tin sinh viên mới:");
-        int id = generateStudentId();
+        int id = generateStudentIdAuto();
         System.out.print("Tên sinh viên: ");
         String name = scanner.nextLine();
         System.out.print("Ngày sinh (dd/MM/yyyy): ");
-        String dob = scanner.nextLine();
+        String dateOfBirth = scanner.nextLine();
         System.out.print("Giới tính: ");
         String gender = scanner.nextLine();
         System.out.print("Số điện thoại: ");
@@ -125,7 +125,7 @@ public class StudentManager {
         System.out.print("Mã lớp học: ");
         String classroomId = scanner.nextLine();
 
-        Student student = new Student(id, name, dob, gender, phone, classroomId);
+        Student student = new Student(id, name, dateOfBirth, gender, phone, classroomId);
         if (validateStudent(student)) {
             students.add(student);
             saveStudents();
@@ -236,7 +236,7 @@ public class StudentManager {
                 }
             }
         } catch (IOException e) {
-            System.out.println("Error when read Teacher " + e.getMessage());
+            System.out.println("Error when read Teacher in getTeacherById " + e.getMessage());
         }
         return null;
     }
