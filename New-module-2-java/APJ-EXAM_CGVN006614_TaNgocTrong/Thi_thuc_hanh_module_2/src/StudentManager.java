@@ -151,14 +151,14 @@ public class StudentManager {
                 break;
             }
         }
-//        if (found == null) {
-//            try {
-//                throw new NotFoundStudentException("Sinh viên không tồn tại.");
-//            } catch (NotFoundStudentException ex) {
-//                System.out.println(ex.getMessage());
-//                return;
-//            }
-//        }
+        if (found == null) {
+            try {
+                throw new NotFoundStudentException("Sinh viên không tồn tại.");
+            } catch (NotFoundStudentException ex) {
+                System.out.println(ex.getMessage());
+                return;
+            }
+        }
 
         System.out.print("Bạn có chắc chắn muốn xóa sinh viên này không (Yes/No): ");
         String confirm = scanner.nextLine();
