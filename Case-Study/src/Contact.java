@@ -1,29 +1,38 @@
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
+
 public class Contact {
     private String phoneNumber;
     private String group;
     private String name;
     private String gender;
     private String address;
-    private String birthday;
+    private String dateOfBirth;
     private String email;
 
     public Contact() {
 
     }
 
-    public Contact(String phoneNumber, String group, String name, String gender, String address, String birthday, String email) {
-        if (phoneNumber.length() < 10 || phoneNumber.length() > 11) {
-            throw new IllegalArgumentException("Invalid phone number.Please enter a valid phone number.");
-        }
+    public Contact(String phoneNumber,
+                   String group,
+                   String name,
+                   String gender,
+                   String address,
+                   String dateOfBirth,
+                   String email) {
+
         this.phoneNumber = phoneNumber;
         this.group = group;
         this.name = name;
         this.gender = gender;
         this.address = address;
-        this.birthday = birthday;
+        this.dateOfBirth = dateOfBirth;
         this.email = email;
     }
-
 
     public String getPhoneNumber() {
         return phoneNumber;
@@ -65,12 +74,12 @@ public class Contact {
         this.address = address;
     }
 
-    public String getBirthday() {
-        return birthday;
+    public String getDateOfBirth() {
+        return dateOfBirth;
     }
 
-    public void setBirthday(String birthday) {
-        this.birthday = birthday;
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
     public String getEmail() {
@@ -81,34 +90,77 @@ public class Contact {
         this.email = email;
     }
 
-    public String toCSV() {
-        return String.join(",", phoneNumber, group, name, gender, address, birthday, email);
+    @Override
+    public String toString() {
+        return phoneNumber + " - "
+                + name + " - "
+                + group + " - "
+                + gender + " - "
+                + address + " - "
+                + dateOfBirth + " - "
+                + email;
+
     }
 
     public static Contact fromCSV(String line) {
-        String[] parts = line.split(",");
-        if (parts.length < 7) {
+        String COMMA = ",";
+        String[] data = line.split(COMMA);
+        if (data.length < 7) {
             return null;
-        } else {
-            return new Contact(parts[0].trim(), parts[1].trim(), parts[2].trim(), parts[3].trim(), parts[4].trim(),
-                    parts[5].trim(), parts[6].trim()
-            );
         }
+        Contact contact = new Contact();
+        contact.setPhoneNumber(data[0].trim());
+        contact.setGroup(data[1].trim());
+        contact.setName(data[2].trim());
+        contact.setGender(data[3].trim());
+        contact.setAddress(data[4].trim());
+        contact.setDateOfBirth(data[5].trim());
+        contact.setEmail(data[6].trim());
+        return contact;
     }
 
-    public void update(String group, String name, String gender, String address, String birthday, String email) {
-        this.group = group;
-        this.name = name;
-        this.gender = gender;
-        this.address = address;
-        this.birthday = birthday;
-        this.email = email;
-
-    }
-
-    @Override
-    public String toString() {
-        return phoneNumber + " - " + name + " - " + group + " - " + gender + " - " + address + " - " + birthday + " - " + email;
+    public String toCSV() {
+        return String.join(",",
+                phoneNumber,
+                group,
+                name,
+                gender,
+                address,
+                dateOfBirth,
+                email);
     }
 
 }
+//public void loadFromFile() {
+//    //Check file exist or not?
+//    System.out.println("File does it exist? " + new File(FILE_PATH).exists());
+//    System.out.println("The file has " + new File(FILE_PATH).length() + " bytes");
+//    //warning ở đây
+//    Scanner scanner = new Scanner(System.in);
+//    System.out.println("Cảnh báo: Lựa chọn “Đọc từ File” sẽ thực hiện xoá toàn bộ danh bạ đang có trong bộ nhớ.");
+//    System.out.println("Bạn có chắc chắn muốn tiếp tục? (Có/Không)");
+//    String confirm = scanner.nextLine().trim().toLowerCase();
+//    if (confirm.equals("không")) {
+//        System.out.println("Huỷ bỏ việc đọc file.");
+//        return;
+//    }
+//    //reset dữ liệu trong lịch sử
+//    contacts.clear();
+//    try (BufferedReader br = new BufferedReader(new FileReader(FILE_PATH))) {
+//        String line = null;
+//        boolean firstLine = true;
+//        while ((line = br.readLine()) != null) {
+//            if (firstLine) {
+//                firstLine = false;
+//                continue;
+//            }
+////                Contact contact = Contact.fromCSV(line);
+////                if (contact != null) {
+////                    contacts.add(contact);
+////                }
+//        }
+//        System.out.println("Read " + contacts.size() + " contacts");
+//    } catch (IOException e) {
+//        System.out.println("Error reading file: " + e.getMessage());
+//    }
+//}
