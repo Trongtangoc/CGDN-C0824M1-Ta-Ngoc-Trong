@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36" version="26.1.0">
-  <diagram id="R2lEEEUBdFMjLlhIrx00" name="Page-1">
-    <mxGraphModel dx="2537" dy="1968" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="0" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36" version="26.1.0" pages="2">
+  <diagram id="R2lEEEUBdFMjLlhIrx00" name="ERD">
+    <mxGraphModel dx="1688" dy="1967" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="0" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -281,6 +281,50 @@
             <mxPoint x="380" y="190" as="sourcePoint" />
             <mxPoint x="530" y="190" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="VmKLXK0uCBSE4Jme2F2K" name="Trang-2">
+    <mxGraphModel dx="1434" dy="738" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="xiGGycBKqyV_xtd3WvUV-1" value="[Bài đọc] 11 quy tắc quan trọng trong thiết kế CSDL&#xa;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;spacingLeft=0;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="210" y="190" width="400" height="760" as="geometry" />
+        </mxCell>
+        <mxCell id="xiGGycBKqyV_xtd3WvUV-2" value="&lt;div&gt;Nguyên tắc số 1: Xác định chiến lược cho CSDL&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="xiGGycBKqyV_xtd3WvUV-1">
+          <mxGeometry y="26" width="400" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="xiGGycBKqyV_xtd3WvUV-5" value="&lt;div&gt;&lt;div&gt;Nguyên tắc số 2: Chia nhỏ dữ liệu một cách hợp lý&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="xiGGycBKqyV_xtd3WvUV-1">
+          <mxGeometry y="90" width="400" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="xiGGycBKqyV_xtd3WvUV-6" value="&lt;div&gt;&lt;div&gt;&lt;div&gt;Nguyên tắc số 3: Đừng lạm dụng nguyên tắc 2&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="xiGGycBKqyV_xtd3WvUV-1">
+          <mxGeometry y="154" width="400" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="xiGGycBKqyV_xtd3WvUV-7" value="&lt;div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;Nguyên tắc số 4: Coi những dữ liệu trùng lặp là kẻ thù lớn nhất&amp;nbsp;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="xiGGycBKqyV_xtd3WvUV-1">
+          <mxGeometry y="218" width="400" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="xiGGycBKqyV_xtd3WvUV-8" value="&lt;div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;Nguyên tắc số 5: Chú ý đến các dữ liệu có sử dụng ký tự phân chia&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="xiGGycBKqyV_xtd3WvUV-1">
+          <mxGeometry y="282" width="400" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="xiGGycBKqyV_xtd3WvUV-9" value="&lt;div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;Nguyên tắc số 6: Chú ý đến các phụ thuộc hàm&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="xiGGycBKqyV_xtd3WvUV-1">
+          <mxGeometry y="346" width="400" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="xiGGycBKqyV_xtd3WvUV-10" value="&lt;div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;Nguyên tắc số 7: Hạn chế các cột chứa kết quả&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="xiGGycBKqyV_xtd3WvUV-1">
+          <mxGeometry y="410" width="400" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="xiGGycBKqyV_xtd3WvUV-11" value="&lt;div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;Nguyên tắc số 8: nếu đặt hiệu năng lên trên hết, đừng quá cứng nhắc trong việc loại bỏ dữ liệu thừa&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="xiGGycBKqyV_xtd3WvUV-1">
+          <mxGeometry y="474" width="400" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="xiGGycBKqyV_xtd3WvUV-12" value="&lt;div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;Nguyên tắc số 9: Dữ liệu đa chiều là một con quái vật&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="xiGGycBKqyV_xtd3WvUV-1">
+          <mxGeometry y="560" width="400" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="xiGGycBKqyV_xtd3WvUV-13" value="&lt;div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;Nguyên tắc số 10: Thiết kế tập trung hóa tên - giá trị&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="xiGGycBKqyV_xtd3WvUV-1">
+          <mxGeometry y="624" width="400" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="xiGGycBKqyV_xtd3WvUV-14" value="&lt;div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;Nguyên tắc số 11: Sử dụng khóa chính - khóa ngoại tự tham chiếu đối với trường hợp phân cấp không giới hạn&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="xiGGycBKqyV_xtd3WvUV-1">
+          <mxGeometry y="688" width="400" height="72" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
