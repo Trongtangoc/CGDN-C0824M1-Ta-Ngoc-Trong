@@ -1,0 +1,2 @@
+create database ss2_convert_erd_to_db;
+use ss2_convert_erd_to_db;
